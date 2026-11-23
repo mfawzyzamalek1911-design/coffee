@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <title>Panama Hacienda La Esmeralda — Specialty Geisha Lot | Coffee Market</title>
+  
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta name="description" content="Velvet Terroir - Specialty Single-Origin Coffee & Artisan Micro-Lot Marketplace"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#131313",
+            "surface-dim": "#131313",
+            "surface-bright": "#393939",
+            "surface-container-lowest": "#0e0e0e",
+            "surface-container-low": "#1c1b1b",
+            "surface-container": "#201f1f",
+            "surface-container-high": "#2a2a2a",
+            "surface-container-highest": "#353534",
+            "on-surface": "#e5e2e1",
+            "on-surface-variant": "#d5c3b8",
+            "primary": "#f4bb92",
+            "primary-container": "#8b5e3c",
+            "on-primary-container": "#ffe3d1",
+            "secondary": "#fab983",
+            "secondary-container": "#6b3e13",
+            "on-secondary-container": "#ebab76",
+            "outline": "#9e8e84",
+            "outline-variant": "#51443c",
+            "error": "#ffb4ab",
+            "error-container": "#93000a",
+            "tertiary": "#c8c6c5"
+          },
+          fontFamily: {
+            serif: ["'Playfair Display'", "Georgia", "serif"],
+            sans: ["'Plus Jakarta Sans'", "system-ui", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="css/style.css"/>
+
+</head>
+<body class="bg-surface font-sans text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container">
+
+  
+  <!-- 1. Top Announcement Bar -->
+  <div class="fixed top-0 w-full z-40 bg-surface-container-lowest border-b border-surface-variant/40 py-2 px-4 text-center text-xs tracking-widest uppercase flex items-center justify-center gap-3 text-primary">
+    <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+    <span>Complimentary White-Glove Shipping On Orders Over $65 • Ethically Sourced Single Origins</span>
+    <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+  </div>
+
+  <!-- 2. Main Navigation Header -->
+  <header class="fixed top-8 w-full z-40 glass-header">
+    <div class="h-20 max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-6">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 shrink-0 group">
+        <div class="w-10 h-10 rounded-full bg-primary-container/20 border border-primary/30 flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+          <span class="material-symbols-outlined text-[24px]">local_cafe</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif text-xl sm:text-2xl font-bold tracking-tight text-on-surface group-hover:text-primary transition-colors">
+            COFFEE MARKET
+          </span>
+          <span class="text-[10px] uppercase tracking-widest text-secondary font-semibold -mt-1">
+            Artisan Roasters Guild
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
+        <a href="index.html" class="hover:text-primary transition-colors text-on-surface-variant">Home</a>
+        <a href="shop.html" class="hover:text-primary transition-colors text-on-surface-variant">Reserve Lots</a>
+        <a href="product.html" class="hover:text-primary transition-colors text-primary font-semibold">Single Geisha</a>
+        <a href="shop.html?category=origins" class="text-on-surface-variant hover:text-primary transition-colors">Origins Map</a>
+        <a href="index.html#tenets" class="text-on-surface-variant hover:text-primary transition-colors">Direct Trade</a>
+      </nav>
+
+      <!-- Right Utility Actions -->
+      <div class="flex items-center gap-3 sm:gap-4">
+        <!-- Search Trigger Button -->
+        <button onclick="openSearchModal()" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high border border-surface-variant/40 text-outline hover:text-on-surface transition-all text-xs" title="Search Reserve Lots (⌘K)">
+          <span class="material-symbols-outlined text-[18px]">search</span>
+          <span class="hidden lg:inline">Search Lots...</span>
+          <kbd class="hidden lg:inline px-1.5 py-0.5 rounded bg-surface-container-highest text-[10px] font-mono text-outline">⌘K</kbd>
+        </button>
+
+        <!-- Wishlist Link -->
+        <a href="shop.html" class="w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-high border border-surface-variant/40 flex items-center justify-center text-outline hover:text-error transition-colors" title="Sommelier Wishlist">
+          <span class="material-symbols-outlined text-[20px]">favorite</span>
+        </a>
+
+        <!-- Cart Trigger Button with Dynamic Badge -->
+        <button onclick="openCart()" class="relative w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-high border border-surface-variant/40 flex items-center justify-center text-on-surface hover:text-primary transition-colors open-cart-trigger" title="View Reserve Cart">
+          <span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+          <span class="cart-badge absolute -top-1 -right-1 min-w-[20px] h-[20px] px-1 rounded-full bg-primary text-on-primary text-[10px] font-bold flex items-center justify-center shadow-lg">2</span>
+        </button>
+
+        <!-- User Profile Dropdown Button -->
+        <div class="relative group">
+          <button type="button" class="flex items-center gap-1.5 pl-1 focus:outline-none" title="Sommelier Account">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6ZAm0DzmY9AanbHv2OXgpxChgLTCBrpSum-SpWYp8S6OUBU48DRzwOQODD2XmulA0iI2qcmz5O1kzjIh_dZ3HZgAcT1dDr1dK9jUpJ8nF2G58YF7359-VtCU4RQ2dPyhzfMCYEJxzJDeSaqHqZcTtnWAyYbtRDAJQncgmeVtUxi9SyHbFH6OJ5aBL5gZNaYpoakpBS55g5EUKf8e2nEYnT6F87lkNSzmVVEa2pjU" alt="Profile" class="user-profile-avatar w-8 h-8 rounded-full object-cover ring-2 ring-primary/40"/>
+            <span class="material-symbols-outlined text-outline text-[16px] hidden sm:block">expand_more</span>
+          </button>
+          
+          <!-- Dropdown Menu -->
+          <div class="invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200 absolute right-0 top-full mt-2 w-56 bg-surface-container-high py-2 rounded-xl shadow-2xl border border-surface-variant/60 z-50">
+            <div class="px-4 py-2.5 bg-surface-container/60 border-b border-surface-variant/40">
+              <p class="user-profile-name text-[10px] text-primary uppercase font-bold tracking-wider">Sommelier Member</p>
+              <p class="user-profile-email text-xs font-medium text-on-surface truncate">Sign in with Google</p>
+            </div>
+            <a href="shop.html" class="flex items-center gap-3 px-4 py-2.5 text-xs text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-colors">
+              <span class="material-symbols-outlined text-[16px]">receipt_long</span> Orders & Reservations
+            </a>
+            <a href="product.html" class="flex items-center gap-3 px-4 py-2.5 text-xs text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-colors">
+              <span class="material-symbols-outlined text-[16px]">autorenew</span> Active Subscriptions
+            </a>
+            <a href="#" onclick="showToast('Preferences updated'); return false;" class="flex items-center gap-3 px-4 py-2.5 text-xs text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-colors">
+              <span class="material-symbols-outlined text-[16px]">settings</span> Roaster Profile Settings
+            </a>
+            <div class="h-px bg-surface-variant/60 my-1"></div>
+            <button class="user-auth-toggle-btn w-full flex items-center gap-3 px-4 py-2 text-xs text-primary hover:bg-surface-container-highest transition-colors text-left" onclick="if(window.FirebaseService?.loginWithGoogle) window.FirebaseService.loginWithGoogle();"><span class="material-symbols-outlined text-[16px]">login</span> Sign In with Google</button>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:text-primary transition-colors">
+          <span class="material-symbols-outlined text-[22px]">menu</span>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+
+  <main class="w-full pt-28 bg-surface">
+    <div class="flex flex-col w-full">
+<!-- Subtle Ambient Glow Orbs -->
+<div class="relative w-full max-w-[1320px] mx-auto px-margin">
+<div class="absolute -top-16 -left-32 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute top-1/3 -right-24 w-80 h-80 bg-secondary-container/15 rounded-full blur-3xl pointer-events-none"></div>
+<!-- 1. Breadcrumbs & Micro-Lot Indexing -->
+<nav class="pt-6 pb-8 flex flex-wrap items-center gap-2 font-label-sm text-label-sm tracking-widest uppercase text-outline">
+<a class="hover:text-primary transition-colors" href="index.html">Home</a>
+<span class="text-surface-variant font-bold">/</span>
+<a class="hover:text-primary transition-colors" href="shop.html">Shop</a>
+<span class="text-surface-variant font-bold">/</span>
+<a class="hover:text-primary transition-colors" href="shop.html">Panama Micro-Lots</a>
+<span class="text-surface-variant font-bold">/</span>
+<span class="text-primary font-medium tracking-normal capitalize text-body-md">Hacienda La Esmeralda Geisha</span>
+<span class="ml-auto hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-label-sm uppercase tracking-wider font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Lot #ES-2025-04A
+      </span>
+</nav>
+<!-- 2. Dual-Column Luxury Product Showcase -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 pb-space-xl">
+<!-- Left Column: Interactive Product Gallery (5 cols) -->
+<div class="lg:col-span-6 xl:col-span-5 flex flex-col gap-5">
+<!-- Main Stage Container -->
+<div class="relative rounded-2xl overflow-hidden bg-surface-container-low shadow-2xl flex items-center justify-center p-8 group">
+<!-- SCA 94.2 Certified Seal Floating Stamp -->
+<div class="absolute top-5 left-5 z-20 bg-surface-container-highest/90 backdrop-blur-md px-3.5 py-2 rounded-xl flex items-center gap-2.5 shadow-lg">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-outline text-[10px]">SCA Quality Cupped</span>
+<span class="font-headline-sm text-headline-sm font-bold text-primary leading-none">94.2 <span class="text-[11px] text-on-surface-variant font-normal tracking-wide">/ 100</span></span>
+</div>
+</div>
+<!-- Quick Reserve Harvest Stamp -->
+<div class="absolute top-5 right-5 z-20 bg-surface-container-lowest/80 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-2">
+<span class="font-label-sm text-label-sm tracking-wider uppercase text-on-surface-variant">Anaerobic 96h</span>
+</div>
+<!-- Primary Interactive Image Display -->
+<div class="relative w-full aspect-[4/5] max-h-[580px] flex items-center justify-center overflow-hidden rounded-xl bg-surface-container-lowest/60">
+<img alt="Hacienda La Esmeralda Geisha packaging canister" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 cursor-crosshair" data-alt="Exquisite minimalist matte black and copper foil specialty coffee cylinder packaging standing on textured dark slate with scattered toasted whole coffee beans and soft directional warm ambient lighting" id="main-gallery-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPlGuA-nxmiO-Fsk_cWnutD2XYv5XYe_0id7FoCDQRkA1wk90nokwM4rF7daWANp1heGXOOTmd1mxX9cKbe0sSgY2jO94DqWg-QJ0qXD0VXx-Po7XE6-iG14nHmrOuBY3yv0aJFZJc4h3kjx0WgIAKdcK1T2RimMBFn1Rr1liOeGsCeUYEDc3K_y4XbxKq_kVQieWZxJiY4ps06zYiMEdwoY5N4i7TIE74uFikBtQ"/>
+<div class="absolute bottom-4 right-4 bg-surface-container-high/90 text-on-surface px-3 py-1.5 rounded-full flex items-center gap-1.5 text-label-sm tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[16px]">zoom_in</span> Roll to Inspect
+            </div>
+</div>
+</div>
+<!-- Thumbnail Gallery Strip -->
+<div class="grid grid-cols-4 gap-3">
+<button class="gallery-thumb active-thumb relative aspect-square rounded-xl overflow-hidden bg-surface-container-low transition-all duration-300 p-1 bg-primary/20" onclick="updateMainImage(this, 'Exquisite minimalist matte black and copper foil specialty coffee cylinder packaging standing on textured dark slate with scattered toasted whole coffee beans and soft directional warm ambient lighting')" type="button">
+<img alt="Product packaging view" class="w-full h-full object-cover rounded-lg" data-alt="Exquisite minimalist matte black and copper foil specialty coffee cylinder packaging standing on textured dark slate with scattered toasted whole coffee beans and soft directional warm ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEEGFE71fSdZdSccTe77BwoqK8MvIJh4sJnKGm9d9JrMqMX7dSFf3kSQK9N5-yZzAqo8IG9qOl4r5DdYH5YAGvEJtaTqjddKmTK6gHSShIkqeTxfO8-N9c-5rwhTsuNgzX_405J8ncnFx6Wqc7d7n9X-ZtJlTW14kvrjq2HzjgRuJpVMIcsshaIY3l_1vLz3k58M3Wnqyqq4uV0TLhgEqkymX6ZLD5AOA5LkyGZf8"/>
+<span class="absolute bottom-1 right-1 bg-surface/80 rounded px-1 text-[9px] font-label-sm text-on-surface">Pouch</span>
+</button>
+<button class="gallery-thumb relative aspect-square rounded-xl overflow-hidden bg-surface-container-low transition-all duration-300 p-1 opacity-70 hover:opacity-100" onclick="updateMainImage(this, 'Extreme macro close-up photograph of freshly medium-light roasted Geisha coffee beans highlighting oil-sheen silk texture and golden parchment seams with shallow depth of field')" type="button">
+<img alt="Whole roasted beans macro" class="w-full h-full object-cover rounded-lg" data-alt="Extreme macro close-up photograph of freshly medium-light roasted Geisha coffee beans highlighting oil-sheen silk texture and golden parchment seams with shallow depth of field" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB22g1va6OR53RLoS1TN6iw-4o58YTse54Vtcolawior7Hbx4b5cBX1y4_NPsB4CrKvNlzGlFXeyCUHJ7vJbCo5V6_MkA4Lvt3iOlXrUmbEWHy04M8ZhxVdfpIMiHI1Y0n9ZsVUV7KnelYBK-rBQhRbfIwtqsSR1lMCOLjZjrRHjRNmUOk1WnBLMo8xEyX5qawvjFMmDSkw1GKaXIeO0EqFJfD8GWaYI4Ac6JPglRo"/>
+<span class="absolute bottom-1 right-1 bg-surface/80 rounded px-1 text-[9px] font-label-sm text-on-surface">Beans</span>
+</button>
+<button class="gallery-thumb relative aspect-square rounded-xl overflow-hidden bg-surface-container-low transition-all duration-300 p-1 opacity-70 hover:opacity-100" onclick="updateMainImage(this, 'Artisanal ceramic cup filled with luminous amber coffee liquor showing delicate surface crema rings next to a glass server in a moody moody dark espresso bar')" type="button">
+<img alt="Brewed cup tasting" class="w-full h-full object-cover rounded-lg" data-alt="Artisanal ceramic cup filled with luminous amber coffee liquor showing delicate surface crema rings next to a glass server in a moody dark espresso bar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkHAuF1Wh8YlpcBDgLnd3dxpm_wczBHStZs0ZlZK0aLxVTfuiWK3cUL0Y76z0WqjmOu8VpX4gcbMCq8wAlN2C3ZfTRB8-P42mVKV1Fj06maJ7mZSN1WHygt020N5LYhKJTJgw4YRIP6A0XtWX2Bhams4BDPSoaunBpzW7oYEbGLsJfCqy8e3yEQu-s0e_jZ-55Jk0HVxW-4yMm4_KlWaYKnzpazxJS4y3UWB6Q94U"/>
+<span class="absolute bottom-1 right-1 bg-surface/80 rounded px-1 text-[9px] font-label-sm text-on-surface">Liquor</span>
+</button>
+<button class="gallery-thumb relative aspect-square rounded-xl overflow-hidden bg-surface-container-low transition-all duration-300 p-1 opacity-70 hover:opacity-100" onclick="updateMainImage(this, 'Atmospheric sunrise mist rising over verdant volcanic terraced coffee plantation in Boquete highlands Panama with lush green mountains and dramatic morning light rays')" type="button">
+<img alt="Hacienda La Esmeralda estate hills" class="w-full h-full object-cover rounded-lg" data-alt="Atmospheric sunrise mist rising over verdant volcanic terraced coffee plantation in Boquete highlands Panama with lush green mountains and dramatic morning light rays" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6Omj5SBQj6OhU7m7EKN-Wbgo-NHXQ5qKfNQKzeiGf9RuATR2AgagzI8E4q9PXINIiEWJiW9XHG6ZGE1O9df2rtL7W4lFlGDNiCDoS9dRAawdzrb_YqOAAOlaAmMwb0G6jsBdqQ4m-lEle4APwrfjELWEevpCj3P7yHcbr9mLRWLhnwvZBcdLStlEnZojxSbX1fytS0kUtMwQPl0z8Ypox3oGA1WOUtJxqk3zfYB0"/>
+<span class="absolute bottom-1 right-1 bg-surface/80 rounded px-1 text-[9px] font-label-sm text-on-surface">Terroir</span>
+</button>
+</div>
+<!-- Traceability Assurance Bar -->
+<div class="bg-surface-container-low rounded-xl p-4 flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[24px]">qr_code_2</span>
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface">Lot Authentication Cryptography</p>
+<p class="font-body-md text-body-md text-outline text-xs">Verify cupper signature &amp; roast telemetry on-chain</p>
+</div>
+</div>
+<button class="text-primary hover:text-on-primary-container text-label-md font-label-md uppercase tracking-wider flex items-center gap-1" type="button">
+            Cert <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+</button>
+</div>
+</div>
+<!-- Right Column: Product Detail & Commercial Actions (7 cols) -->
+<div class="lg:col-span-6 xl:col-span-7 flex flex-col space-y-6">
+<!-- Header & Titles -->
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-container/30 text-primary font-label-sm text-label-sm uppercase tracking-widest">
+              Grand Reserve Cru
+            </span>
+<span class="text-outline text-xs">•</span>
+<span class="text-outline font-label-sm text-label-sm uppercase tracking-wider">Direct Terroir Exchange</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg font-semibold text-on-surface leading-tight tracking-tight">
+            Panama Hacienda La Esmeralda — Special Geisha Natural
+          </h1>
+<p class="font-title-md text-body-lg text-on-surface-variant flex items-center gap-2 flex-wrap">
+<span>Boquete Valley, Panama</span>
+<span class="text-outline font-bold">·</span>
+<span>1,850m Altitude</span>
+<span class="text-outline font-bold">·</span>
+<span class="text-secondary font-medium">Anaerobic Slow Natural Process</span>
+</p>
+</div>
+<!-- Sensory Aroma & Cupping Note Micro-Pills -->
+<div class="space-y-2.5 pt-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-outline">Signature Sensory Spectrum</span>
+<span class="font-label-sm text-label-sm text-primary">SCA Certified Dial</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface text-label-sm font-label-sm tracking-wide flex items-center gap-1.5 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-amber-200"></span> Jasmine Blossom
+            </span>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface text-label-sm font-label-sm tracking-wide flex items-center gap-1.5 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-yellow-400"></span> Meyer Lemon
+            </span>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface text-label-sm font-label-sm tracking-wide flex items-center gap-1.5 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-orange-400"></span> Bergamot
+            </span>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface text-label-sm font-label-sm tracking-wide flex items-center gap-1.5 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-rose-300"></span> White Peach
+            </span>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface text-label-sm font-label-sm tracking-wide flex items-center gap-1.5 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-amber-500"></span> Wild Honey
+            </span>
+</div>
+</div>
+<!-- Pricing & Subscription Switcher Card -->
+<div class="bg-surface-container-low rounded-2xl p-5 space-y-4 shadow-md">
+<div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+<div class="flex items-baseline gap-3">
+<span class="font-headline-lg text-headline-lg font-bold text-primary" id="price-display">$54.00</span>
+<span class="font-label-sm text-label-sm text-outline tracking-wider uppercase">USD / Single Tin</span>
+</div>
+<div class="inline-flex items-center gap-2 bg-surface-container-highest px-3 py-1 rounded-full text-label-sm text-on-secondary-container">
+<span class="material-symbols-outlined text-secondary text-[16px]">local_fire_department</span>
+<span>23 Tins Allocated to Current Batch</span>
+</div>
+</div>
+<!-- Subscription Toggle Matrix -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+<label class="relative flex flex-col p-3 rounded-xl bg-surface-container-high cursor-pointer transition-all hover:bg-surface-container-highest">
+<input checked="" class="peer sr-only" name="purchase_model" onchange="togglePurchaseModel(false)" type="radio" value="onetime"/>
+<div class="flex items-center justify-between mb-1">
+<span class="font-title-md text-body-md font-semibold text-on-surface">One-Time Allocation</span>
+<span class="w-4 h-4 rounded-full bg-surface-variant flex items-center justify-center peer-checked:bg-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-surface"></span>
+</span>
+</div>
+<span class="font-body-md text-outline text-xs">Single micro-lot roasted and dispatched immediately</span>
+</label>
+<label class="relative flex flex-col p-3 rounded-xl bg-surface-container cursor-pointer transition-all hover:bg-surface-container-highest">
+<input class="peer sr-only" name="purchase_model" onchange="togglePurchaseModel(true)" type="radio" value="subscribe"/>
+<div class="flex items-center justify-between mb-1">
+<span class="font-title-md text-body-md font-semibold text-secondary">Reserve Sommelier Club</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-secondary text-[10px] font-bold tracking-widest uppercase">Save 10%</span>
+</div>
+<span class="font-body-md text-outline text-xs"><strong class="text-on-surface">$48.60/bag</strong> · Scheduled 30-day freshness courier</span>
+</label>
+</div>
+</div>
+<!-- Weight Option Selector -->
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-outline">Weight Tier</label>
+<span class="font-label-sm text-label-sm text-primary">Nitrogen-Flushed Canisters</span>
+</div>
+<div class="grid grid-cols-3 gap-3">
+<button class="weight-button flex flex-col items-center justify-center py-3 px-2 rounded-xl bg-primary-container/20 text-primary shadow-sm transition-all" onclick="selectWeight(250, 54.00, this)" type="button">
+<span class="font-headline-sm text-headline-sm font-semibold">250g</span>
+<span class="font-label-sm text-label-sm mt-0.5">$54.00</span>
+</button>
+<button class="weight-button flex flex-col items-center justify-center py-3 px-2 rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-all" onclick="selectWeight(500, 98.00, this)" type="button">
+<span class="font-headline-sm text-headline-sm font-semibold">500g</span>
+<span class="font-label-sm text-label-sm text-outline mt-0.5">$98.00</span>
+</button>
+<button class="weight-button flex flex-col items-center justify-center py-3 px-2 rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-all" onclick="selectWeight(1000, 180.00, this)" type="button">
+<span class="font-headline-sm text-headline-sm font-semibold">1,000g</span>
+<span class="font-label-sm text-label-sm text-outline mt-0.5">$180.00</span>
+</button>
+</div>
+</div>
+<!-- Grind Profile Selection -->
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-outline">Bespoke Grind Calibration</label>
+<a class="font-label-sm text-label-sm text-primary hover:underline" href="#brewing-guide">Calibration Chart</a>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+<button class="grind-btn active-grind text-left px-3 py-2.5 rounded-xl bg-primary text-on-primary font-label-md text-label-md flex items-center justify-between shadow-md transition-all" type="button">
+<span>Whole Bean</span>
+<span class="text-[10px] uppercase font-bold tracking-widest bg-black/20 px-1.5 py-0.5 rounded">Prime</span>
+</button>
+<button class="grind-btn text-left px-3 py-2.5 rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-all" type="button">
+              Pour Over / Chemex
+            </button>
+<button class="grind-btn text-left px-3 py-2.5 rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-all" type="button">
+              Espresso (9 Bar)
+            </button>
+<button class="grind-btn text-left px-3 py-2.5 rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-all" type="button">
+              French Press
+            </button>
+<button class="grind-btn text-left px-3 py-2.5 rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-all" type="button">
+              AeroPress
+            </button>
+<button class="grind-btn text-left px-3 py-2.5 rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-all" type="button">
+              Cold Brew Slow Steep
+            </button>
+</div>
+</div>
+<!-- Freshness Dispatch Telemetry -->
+<div class="flex items-center gap-3 p-3.5 rounded-xl bg-surface-container-low">
+<div class="w-10 h-10 rounded-full bg-secondary-container/40 flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[20px]">schedule</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-body-md font-medium text-on-surface">Roasted Exclusively on Order</span>
+<span class="font-body-md text-body-md text-outline text-xs">Next artisan roast batch fires in <span class="text-secondary font-semibold">14h 22m</span>. Degassed under nitrogen.</span>
+</div>
+</div>
+<!-- Quantity & Core Purchasing Triggers -->
+<div class="space-y-3 pt-2">
+<div class="flex flex-col sm:flex-row items-stretch gap-3">
+<!-- Quantity Counter -->
+<div class="flex items-center justify-between bg-surface-container-low rounded-full px-4 py-2 sm:w-36 shrink-0 shadow-inner">
+<button aria-label="Decrease quantity" class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container hover:text-primary transition-colors text-lg" onclick="alterQuantity(-1)" type="button">-</button>
+<span class="font-title-md text-title-md font-bold text-on-surface" id="qty-indicator">1</span>
+<button aria-label="Increase quantity" class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container hover:text-primary transition-colors text-lg" onclick="alterQuantity(1)" type="button">+</button>
+</div>
+<!-- Primary Add to Cart Action -->
+<button class="flex-1 bg-primary text-on-primary font-label-md text-label-md uppercase tracking-widest py-4 px-8 rounded-full flex items-center justify-center gap-3 transition-all hover:bg-primary-container hover:text-on-primary-container shadow-xl hover:shadow-[0_0_24px_rgba(244,187,146,0.3)] cursor-pointer" id="add-to-cart-cta" onclick="addProductToCart()" type="button">
+<span class="material-symbols-outlined text-[20px]">local_mall</span>
+<span id="cart-cta-text">Add To Tasting Cart · $54.00</span>
+</button>
+<!-- Bookmark Button -->
+<button aria-label="Save to curated wishlist" class="w-14 h-14 rounded-full bg-surface-container-low text-on-surface-variant hover:text-primary hover:bg-surface-container flex items-center justify-center transition-all shrink-0 shadow-sm" onclick="toggleBookmark(this)" type="button">
+<span class="material-symbols-outlined text-[22px]">favorite</span>
+</button>
+</div>
+<!-- Secondary 1-Click Purchase Trigger -->
+<button class="w-full py-3.5 px-6 rounded-full bg-surface-container text-on-surface font-label-md text-label-md uppercase tracking-wider hover:bg-surface-container-highest transition-colors flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-secondary text-[18px]">bolt</span>
+<span>Reserve Immediately with 1-Click Vault Checkout</span>
+</button>
+</div>
+<!-- Luxury Guarantees & Credentials -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3">
+<div class="flex items-center gap-2.5 p-2 rounded-lg">
+<span class="material-symbols-outlined text-secondary text-[20px]">verified_user</span>
+<span class="font-body-md text-xs text-on-surface-variant leading-snug">Peak Freshness Degas Guarantee</span>
+</div>
+<div class="flex items-center gap-2.5 p-2 rounded-lg">
+<span class="material-symbols-outlined text-secondary text-[20px]">handshake</span>
+<span class="font-body-md text-xs text-on-surface-variant leading-snug">Direct Trade Verified Farm Premium</span>
+</div>
+<div class="flex items-center gap-2.5 p-2 rounded-lg">
+<span class="material-symbols-outlined text-secondary text-[20px]">local_shipping</span>
+<span class="font-body-md text-xs text-on-surface-variant leading-snug">Temperature Insured Courier</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. Detailed Sensory & Agronomy Dossier Tabs -->
+<section class="py-space-xl">
+<div class="bg-surface-container-low rounded-2xl p-6 sm:p-10 shadow-xl">
+<!-- Tab Navigation Navigation -->
+<div class="flex flex-wrap items-center gap-2 sm:gap-4 pb-6 mb-8">
+<button class="dossier-tab active-dossier-tab px-5 py-2.5 rounded-full font-label-md text-label-md uppercase tracking-wider bg-primary text-on-primary shadow-md transition-all" onclick="switchTab(this, 'tab-sensory')" type="button">
+            Cupping &amp; Sensory Dial
+          </button>
+<button class="dossier-tab px-5 py-2.5 rounded-full font-label-md text-label-md uppercase tracking-wider bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" onclick="switchTab(this, 'tab-terroir')" type="button">
+            Estate Lineage &amp; Terroir
+          </button>
+<button class="dossier-tab px-5 py-2.5 rounded-full font-label-md text-label-md uppercase tracking-wider bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" onclick="switchTab(this, 'tab-brewing')" type="button">
+            Master Sommelier Brew Guide
+          </button>
+</div>
+<!-- TAB CONTENT 1: SENSORY RADAR & CUPPING MATRIX -->
+<div class="tab-pane block space-y-10" id="tab-sensory">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<!-- Left Data Metrics (6 cols) -->
+<div class="lg:col-span-6 space-y-6">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Sensory Profile Evaluation</span>
+<h3 class="font-headline-md text-headline-md font-semibold text-on-surface mt-1">Multi-Dimensional Cup Equilibrium</h3>
+<p class="font-body-md text-body-md text-outline mt-2 leading-relaxed">
+                  Cupped at our Zurich lab according to SCA protocol (12g / 200ml, 93°C water at 70ppm TDS). This Anaerobic Natural Geisha represents the pinnacle of modern pan-tropical cup clarity.
+                </p>
+</div>
+<!-- Visual Sensory Sliders -->
+<div class="space-y-4">
+<div>
+<div class="flex justify-between font-label-sm text-label-sm uppercase tracking-wider text-on-surface mb-1">
+<span>Acidity: Sparkling Citric &amp; Malic</span>
+<span class="text-primary font-bold">9.6 / 10</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-700" style="width: 96%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm uppercase tracking-wider text-on-surface mb-1">
+<span>Floral Intensity (Jasmine &amp; Orange Blossom)</span>
+<span class="text-primary font-bold">9.8 / 10</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-700" style="width: 98%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm uppercase tracking-wider text-on-surface mb-1">
+<span>Sweetness (Cane Sugar &amp; Wild Honey)</span>
+<span class="text-primary font-bold">9.2 / 10</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-700" style="width: 92%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm uppercase tracking-wider text-on-surface mb-1">
+<span>Tactile Body: Silky Tea-like Finish</span>
+<span class="text-secondary font-bold">8.7 / 10</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full transition-all duration-700" style="width: 87%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Inline SVG Radar Spider Chart (6 cols) -->
+<div class="lg:col-span-6 flex flex-col items-center justify-center p-6 bg-surface-container rounded-2xl">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-outline mb-2">Cupping Radar Diagram</span>
+<svg class="w-full max-w-[320px] aspect-square text-primary drop-shadow-[0_0_16px_rgba(244,187,146,0.15)]" viewbox="0 0 340 340">
+<!-- Concentric Web Rings -->
+<circle cx="170" cy="170" fill="none" r="130" stroke="currentColor" stroke-opacity="0.1" stroke-width="1"></circle>
+<circle cx="170" cy="170" fill="none" r="95" stroke="currentColor" stroke-opacity="0.1" stroke-width="1"></circle>
+<circle cx="170" cy="170" fill="none" r="60" stroke="currentColor" stroke-opacity="0.1" stroke-width="1"></circle>
+<circle cx="170" cy="170" fill="none" r="25" stroke="currentColor" stroke-opacity="0.1" stroke-width="1"></circle>
+<!-- Axes -->
+<line stroke="currentColor" stroke-opacity="0.2" stroke-width="1" x1="170" x2="170" y1="40" y2="300"></line>
+<line stroke="currentColor" stroke-opacity="0.2" stroke-width="1" x1="40" x2="300" y1="170" y2="170"></line>
+<line stroke="currentColor" stroke-opacity="0.15" stroke-width="1" x1="78" x2="262" y1="78" y2="262"></line>
+<line stroke="currentColor" stroke-opacity="0.15" stroke-width="1" x1="78" x2="262" y1="262" y2="78"></line>
+<!-- Radar Polygon Shape for Esmeralda Geisha -->
+<polygon fill="currentColor" fill-opacity="0.25" points="170,48 250,90 285,170 240,245 170,270 95,240 60,170 100,95" stroke="currentColor" stroke-width="2"></polygon>
+<!-- Data Node Points -->
+<circle cx="170" cy="48" fill="#fab983" r="4"></circle>
+<circle cx="250" cy="90" fill="#fab983" r="4"></circle>
+<circle cx="285" cy="170" fill="#fab983" r="4"></circle>
+<circle cx="240" cy="245" fill="#fab983" r="4"></circle>
+<circle cx="170" cy="270" fill="#fab983" r="4"></circle>
+<circle cx="95" cy="240" fill="#fab983" r="4"></circle>
+<circle cx="60" cy="170" fill="#fab983" r="4"></circle>
+<circle cx="100" cy="95" fill="#fab983" r="4"></circle>
+<!-- Axis Labels -->
+<text fill="#e5e2e1" font-family="Plus Jakarta Sans" font-size="10" letter-spacing="1" text-anchor="middle" x="170" y="32">AROMA</text>
+<text fill="#e5e2e1" font-family="Plus Jakarta Sans" font-size="10" text-anchor="start" x="275" y="85">FLORAL</text>
+<text fill="#e5e2e1" font-family="Plus Jakarta Sans" font-size="10" text-anchor="start" x="295" y="174">ACIDITY</text>
+<text fill="#e5e2e1" font-family="Plus Jakarta Sans" font-size="10" text-anchor="start" x="250" y="260">SWEET</text>
+<text fill="#e5e2e1" font-family="Plus Jakarta Sans" font-size="10" text-anchor="middle" x="170" y="292">CLEAN</text>
+<text fill="#e5e2e1" font-family="Plus Jakarta Sans" font-size="10" text-anchor="end" x="75" y="260">BODY</text>
+<text fill="#e5e2e1" font-family="Plus Jakarta Sans" font-size="10" text-anchor="end" x="45" y="174">FINISH</text>
+<text fill="#e5e2e1" font-family="Plus Jakarta Sans" font-size="10" text-anchor="end" x="80" y="85">UNIFORM</text>
+</svg>
+<p class="font-label-sm text-label-sm text-outline mt-3 text-center">Score audited by Q-Grader Certification #44109</p>
+</div>
+</div>
+</div>
+<!-- TAB CONTENT 2: FARM & TERROIR STORY -->
+<div class="tab-pane hidden space-y-8" id="tab-terroir">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<div class="lg:col-span-7 space-y-4">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">The Genesis of Modern Specialty</span>
+<h3 class="font-headline-md text-headline-md font-semibold text-on-surface">The Peterson Legacy in Boquete Highlands</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                In 2004, Daniel Peterson discovered that coffee from the high-altitude parcels of Jaramillo tasted profoundly unlike anything previously cupped in the Western Hemisphere: a burst of bergamot, tea florals, and candied peaches. Thus was born the legendary Esmeralda Special.
+              </p>
+<p class="font-body-md text-body-md text-outline leading-relaxed">
+                Nestled along the slopes of Volcán Barú, the cold Pacific and Caribbean air masses meet directly over the micro-valley, causing perpetual cooling mists known locally as <em class="text-on-surface">bajareque</em>. This microclimate stalls the cherry maturation process to an astonishing 240 days, concentrating sugars and aromatic esters deep within the seed.
+              </p>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-3">
+<div class="bg-surface-container p-3 rounded-xl">
+<span class="font-label-sm text-label-sm uppercase text-outline">Estate Lot</span>
+<p class="font-title-md text-body-md font-semibold text-on-surface mt-0.5">Cañas Verdes / Jaramillo</p>
+</div>
+<div class="bg-surface-container p-3 rounded-xl">
+<span class="font-label-sm text-label-sm uppercase text-outline">Soil Profile</span>
+<p class="font-title-md text-body-md font-semibold text-on-surface mt-0.5">Volcanic Andosol</p>
+</div>
+<div class="bg-surface-container p-3 rounded-xl">
+<span class="font-label-sm text-label-sm uppercase text-outline">Varietal</span>
+<p class="font-title-md text-body-md font-semibold text-on-surface mt-0.5">100% Geisha (T2722)</p>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 space-y-4">
+<!-- Farmer & Estate Feature Visual -->
+<div class="rounded-2xl overflow-hidden shadow-lg bg-surface-container-high relative">
+<img alt="Peterson family agronomist inspecting Geisha lot" class="w-full h-72 object-cover" data-alt="Portrait of master coffee agronomist standing in front of high-altitude shaded coffee shrubs inspecting ripe scarlet Geisha cherries at sunrise in Panama Boquete" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAt-ocAGAfi9csFSn6dV_IwHqyzdnEmpqNRahRT9PjlKQ_13-EM7L4prh8CNdYNdts52F5A8p8_3DzbssjjPZZjSiiQvV5c4Bj7UiYcR9Zq0lmRZst05cQgcNls2JiJ6yljF5-GC2TGtZ5HNRuMwKNgiulU5565UXZZwUCQeJ1mOnP1CDBZoUWbFq2NiN-KMKZdFdQUOxbsZE9L0z8iTJcitCjuosrWi-S-l1D64Ok"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent flex items-end p-5">
+<div>
+<p class="font-title-md text-body-md font-semibold text-on-surface">Rachel &amp; Daniel Peterson</p>
+<p class="font-label-sm text-label-sm text-primary">Fourth-Generation Custodians · Hacienda La Esmeralda</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- TAB CONTENT 3: BREWING GUIDE & SOMMELIER RECIPE -->
+<div class="tab-pane hidden space-y-8" id="tab-brewing">
+<div class="max-w-4xl space-y-6">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Precision Extraction Protocol</span>
+<h3 class="font-headline-md text-headline-md font-semibold text-on-surface mt-1">Recommended V60 / Origami Method</h3>
+<p class="font-body-md text-body-md text-outline">
+                To accentuate the elusive floral aromatics of this anaerobic natural lot, prioritize soft water with low bicarbonate content and a flat extraction geometry.
+              </p>
+</div>
+<!-- Parameters Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="bg-surface-container p-4 rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[28px]">scale</span>
+<div>
+<span class="font-label-sm text-label-sm uppercase text-outline">Coffee Dose</span>
+<p class="font-headline-sm text-headline-sm font-semibold text-on-surface">18.0g</p>
+</div>
+</div>
+<div class="bg-surface-container p-4 rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[28px]">water_drop</span>
+<div>
+<span class="font-label-sm text-label-sm uppercase text-outline">Total Water</span>
+<p class="font-headline-sm text-headline-sm font-semibold text-on-surface">300g (1:16.6)</p>
+</div>
+</div>
+<div class="bg-surface-container p-4 rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[28px]">device_thermostat</span>
+<div>
+<span class="font-label-sm text-label-sm uppercase text-outline">Water Temp</span>
+<p class="font-headline-sm text-headline-sm font-semibold text-on-surface">93°C / 199°F</p>
+</div>
+</div>
+<div class="bg-surface-container p-4 rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[28px]">timer</span>
+<div>
+<span class="font-label-sm text-label-sm uppercase text-outline">Target Time</span>
+<p class="font-headline-sm text-headline-sm font-semibold text-on-surface">3m 15s</p>
+</div>
+</div>
+</div>
+<!-- Step by Step Pour Sequence -->
+<div class="space-y-3 pt-2">
+<h4 class="font-title-md text-title-md font-semibold text-on-surface">Extraction Stages</h4>
+<div class="flex items-start gap-4 p-4 rounded-xl bg-surface-container/60">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">01</span>
+<div>
+<p class="font-title-md text-body-md font-semibold text-on-surface">0:00 — Bloom &amp; Degas (50g)</p>
+<p class="font-body-md text-body-md text-outline">Gently pour 50g of water with spiral motion. Swirl softly once and let rest for 45 seconds to liberate volatile citrus esters.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl bg-surface-container/60">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">02</span>
+<div>
+<p class="font-title-md text-body-md font-semibold text-on-surface">0:45 — The Center Flow (up to 180g)</p>
+<p class="font-body-md text-body-md text-outline">Pour in continuous controlled concentric circles up to 180g by 1:15. Maintain calm water surface without turbulence.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl bg-surface-container/60">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">03</span>
+<div>
+<p class="font-title-md text-body-md font-semibold text-on-surface">1:30 — Final Sweetness Extension (up to 300g)</p>
+<p class="font-body-md text-body-md text-outline">Even pour to 300g by 2:00. Give one single gentle tap to settle the coffee bed. Let draw down complete at approximately 3:15.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Customer Reviews & SCA Tasting Ratings Section -->
+<section class="py-space-lg">
+<div class="space-y-8">
+<!-- Header & Summary Rating Box -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Appraisals &amp; Sensory Critique</span>
+<h2 class="font-headline-lg text-headline-lg font-semibold text-on-surface mt-1">Connoisseur Cupping Reviews</h2>
+</div>
+<button class="bg-surface-container-high text-on-surface font-label-md text-label-md uppercase tracking-wider px-6 py-3 rounded-full hover:bg-primary hover:text-on-primary transition-all self-start lg:self-auto shadow-md" type="button">
+            Submit Verified Tasting Appraisal
+          </button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Rating Breakdown Card (4 cols) -->
+<div class="lg:col-span-4 bg-surface-container-low rounded-2xl p-6 space-y-6 shadow-md flex flex-col justify-between">
+<div class="text-center py-2">
+<span class="font-headline-lg text-display-hero font-bold text-primary leading-none">4.96</span>
+<div class="flex justify-center text-primary mt-2">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-label-sm text-label-sm uppercase tracking-wider text-outline mt-2">Based on 48 Verified Lot Cuppers</p>
+</div>
+<!-- Star distribution bars -->
+<div class="space-y-2 font-label-sm text-label-sm">
+<div class="flex items-center gap-3">
+<span class="w-8 text-on-surface">5 ★</span>
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 94%"></div>
+</div>
+<span class="w-8 text-right text-outline">94%</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-8 text-on-surface">4 ★</span>
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 6%"></div>
+</div>
+<span class="w-8 text-right text-outline">6%</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-8 text-outline">3 ★</span>
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 0%"></div>
+</div>
+<span class="w-8 text-right text-outline">0%</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-8 text-outline">2 ★</span>
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 0%"></div>
+</div>
+<span class="w-8 text-right text-outline">0%</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-8 text-outline">1 ★</span>
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 0%"></div>
+</div>
+<span class="w-8 text-right text-outline">0%</span>
+</div>
+</div>
+<div class="pt-4 border-t border-surface-variant/30 flex items-center justify-between text-xs text-outline">
+<span>Direct Lot Batch: ES-2025-04</span>
+<span class="text-primary font-medium">100% Certified Direct Trade</span>
+</div>
+</div>
+<!-- Customer Tasting Feedback Reviews (8 cols) -->
+<div class="lg:col-span-8 space-y-4">
+<!-- Review 1 -->
+<div class="bg-surface-container-low rounded-2xl p-6 space-y-4 shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-sm">
+                    MS
+                  </div>
+<div>
+<h4 class="font-title-md text-body-md font-semibold text-on-surface">Markus S. — AST &amp; Licensed Q-Grader</h4>
+<div class="flex items-center gap-2 mt-0.5">
+<div class="flex text-primary text-[14px]">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-outline text-xs">• Roasted Feb 12 · Brewed Chemex</span>
+</div>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-primary-container/20 text-primary text-[10px] font-bold uppercase tracking-wider">
+                  Verified Batch Owner
+                </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                “This specific anaerobic natural lot showcases pure Meyer lemon sweetness with none of the ferment dryness that plagues poorly dialed coffees. The bergamot perfume fills the room the second hot water strikes the grinds. Worth every single dollar for special occasions.”
+              </p>
+<!-- Photo Review attachments -->
+<div class="flex items-center gap-3 pt-1">
+<img alt="Customer brew setup" class="w-16 h-16 rounded-xl object-cover" data-alt="Customer photo of Chemex dripper with luminous orange coffee draining through natural paper filter with warm wooden table surroundings" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyq4pZshn3U6CrktMdSoL0txKFeZWOxO0i4RaALH_yTwairED8hznZC-6XKTgO6z3Qp9HqohYOjuBoAA42EXDFHlQBWGBHTg1mSEK5Tk3ghO-CZlI0mDmya2KUZfLBEHktS9FkuoH_yxPm_asUZuFPo-7eZyWuKSbO0qrMh9Fp2pFZrRT6xmk4Mq4pyvTR3MY_jQwVvivvdxWMTZULNCFcXmFX6u_LgAO1uqycHV0"/>
+<img alt="Customer roast canister view" class="w-16 h-16 rounded-xl object-cover" data-alt="Customer photo of open canister of roasted coffee beans showing uniform cinnamon roast level" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC36IqcQZZrvts6RSXX1PH4xBPePKLkae5PlUD6-eLE0-W2zPSlnPCNAPx4HrM_XBeW-sKBEiIAYGylPGL5T49FKJFmN6Wl-uDjURwMQZyZR2UNy68hGgNwh9cWQwMgSYbAVTS0eQrZus8PrOsfQsc-Zi69-qH1IqQAlexMnEysRSGJuas87Quz8KRpY850HK1H5VoTR_YaNk-mjJIoZCQeJXhK_TkBUIbEdb7Ynjo"/>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="bg-surface-container-low rounded-2xl p-6 space-y-4 shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold text-sm">
+                    EL
+                  </div>
+<div>
+<h4 class="font-title-md text-body-md font-semibold text-on-surface">Elena L.</h4>
+<div class="flex items-center gap-2 mt-0.5">
+<div class="flex text-primary text-[14px]">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-outline text-xs">• Roasted Jan 29 · Origami Dripper</span>
+</div>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-primary-container/20 text-primary text-[10px] font-bold uppercase tracking-wider">
+                  Verified Batch Owner
+                </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                “Tastes more like white tea and crushed white peaches than coffee in the traditional sense. Intensely aromatic, velvety mouthfeel, and lingering jasmine blossom sweetness in the throat 10 minutes after drinking.”
+              </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Curated 'Pairs Perfectly With' & Related Specialty Roasts -->
+<section class="pt-space-lg pb-space-xl">
+<div class="space-y-6">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Cellar Companion Selections</span>
+<h2 class="font-headline-lg text-headline-lg font-semibold text-on-surface mt-1">Exceptional Micro-Lot Companions</h2>
+</div>
+<a class="inline-flex items-center gap-2 text-primary hover:text-secondary font-label-md text-label-md uppercase tracking-wider" href="shop.html">
+            Explore All Micro-Lots <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="group bg-surface-container-low rounded-2xl p-5 flex flex-col justify-between transition-all duration-300 hover:scale-[1.015] hover:shadow-[0_0_24px_rgba(244,187,146,0.18)]">
+<div class="space-y-4">
+<div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-surface-container-highest">
+<img alt="Yemen Haraz Peaberry" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Matte coffee package with gold typography and fresh beans for Yemen Haraz Peaberry coffee lot on dark marble slab" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArqQ2AiX0CLTq-9ErQu2BYfnLwPQjkK-tXokpjTqyiZdlmrffW5ftZNf-C4KTPpWYhAN2KcqtUPBq23K7pWDdhEwLSY8SMkF3kCIIEqNaBuWmBmEO1lJtofRpobbeOATVT_8_3dxAjF1vQ1iVR_sPHsajvgQeuuGNQe4TBNaBs_BXJbY3P98pONoDfTuvI0LfVmwjAKdDfSSWn2QLB73YrJ4Zac-euWvWZNzOePeE"/>
+<div class="absolute top-3 left-3 bg-surface-container-lowest/80 backdrop-blur-sm px-2.5 py-1 rounded-full text-primary font-label-sm text-label-sm">
+                  SCA 93.5
+                </div>
+</div>
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-medium">Yemen · High Haraz 2,200m</span>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface group-hover:text-primary transition-colors mt-0.5">
+                  Ancient Haraz Peaberry Natural
+                </h3>
+<p class="font-body-md text-body-md text-outline mt-1 line-clamp-2">
+                  Spiced cardamon, dark plum reduction, red currants, and complex raw cacao.
+                </p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-6 mt-4 border-t border-surface-variant/20">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">$49.00 <span class="text-xs font-normal text-outline">/ 250g</span></span>
+<button class="w-10 h-10 rounded-full bg-surface-container text-on-surface hover:bg-primary hover:text-on-primary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-surface-container-low rounded-2xl p-5 flex flex-col justify-between transition-all duration-300 hover:scale-[1.015] hover:shadow-[0_0_24px_rgba(244,187,146,0.18)]">
+<div class="space-y-4">
+<div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-surface-container-highest">
+<img alt="Colombia Huila Pink Bourbon" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Luxury copper canister with Colombia Pink Bourbon coffee beans arranged elegantly on slate stone" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw1zkbSNt02Hx1xe0ifilaLqvwkxDSRBEOBvRKy7lDTZPy9cMai_f87vMEH1ztLTSuxLj4EG1i8eVdd8A0-BySN8j6DrllcOsZwX--mYienkdKJoVoc0etZn21FAWx33RxCCuOyCWF8YelT62BJumJUvcUtvqOS-_cFZ0NjVkygmIMAdpTAWtENSAeltxzbVa5mbaCUTqwvDHmuVTBUJAq76d5GzPpjVIoO6dfb7I"/>
+<div class="absolute top-3 left-3 bg-surface-container-lowest/80 backdrop-blur-sm px-2.5 py-1 rounded-full text-primary font-label-sm text-label-sm">
+                  SCA 92.8
+                </div>
+</div>
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-medium">Colombia · San Adolfo 1,950m</span>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface group-hover:text-primary transition-colors mt-0.5">
+                  Finca El Paraiso Pink Bourbon
+                </h3>
+<p class="font-body-md text-body-md text-outline mt-1 line-clamp-2">
+                  Pink guava, passionfruit nectar, sparkling champagne acidity, and floral honey.
+                </p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-6 mt-4 border-t border-surface-variant/20">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">$42.00 <span class="text-xs font-normal text-outline">/ 250g</span></span>
+<button class="w-10 h-10 rounded-full bg-surface-container text-on-surface hover:bg-primary hover:text-on-primary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-surface-container-low rounded-2xl p-5 flex flex-col justify-between transition-all duration-300 hover:scale-[1.015] hover:shadow-[0_0_24px_rgba(244,187,146,0.18)]">
+<div class="space-y-4">
+<div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-surface-container-highest">
+<img alt="Sommelier Glass Pour-Over Set" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Artisanal hand-blown glass dripper and matte black coffee server set against warm dark timber background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBT5u-fMcn35APT27y1maiSEsM3okuFwCsqmr4evxdynmHPZVoi6FqZwEM46LDNCO-CEF2pD3ho6Jz6QG2s0BDAFRzEKwHBiM10h7wEYFtWW8P2yXsT4ZPlH8XFSmKPid-jiiC5A0Dg3KN3jWYjkcRfu99XiArizYqTAic3B9Kmc98YEK62xpthZVoIUAkC-v_HxfflslGRutEVrj6YhN58nzo2shCXZ-fdS8qeOjs"/>
+<div class="absolute top-3 left-3 bg-surface-container-lowest/80 backdrop-blur-sm px-2.5 py-1 rounded-full text-secondary font-label-sm text-label-sm">
+                  Gear Partner
+                </div>
+</div>
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-medium">Extraction Hardware</span>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface group-hover:text-primary transition-colors mt-0.5">
+                  Bespoke Hand-Blown Fluted Server &amp; Dripper
+                </h3>
+<p class="font-body-md text-body-md text-outline mt-1 line-clamp-2">
+                  Borosilicate double-wall laboratory-grade vessel calibrated specifically for Geisha aromatic retention.
+                </p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-6 mt-4 border-t border-surface-variant/20">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">$88.00 <span class="text-xs font-normal text-outline">/ Set</span></span>
+<button class="w-10 h-10 rounded-full bg-surface-container text-on-surface hover:bg-primary hover:text-on-primary flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Inline Interactive Logic -->
+<script>
+    let currentBasePrice = 54.00;
+    let isSubscription = false;
+    let quantity = 1;
+
+    function renderPricing() {
+      const discount = isSubscription ? 0.9 : 1.0;
+      const unitPrice = currentBasePrice * discount;
+      const totalPrice = unitPrice * quantity;
+
+      const priceDisplay = document.getElementById('price-display');
+      const cartCtaText = document.getElementById('cart-cta-text');
+
+      if (priceDisplay) {
+        priceDisplay.textContent = `$${unitPrice.toFixed(2)}`;
+      }
+      if (cartCtaText) {
+        cartCtaText.textContent = `Add To Tasting Cart · $${totalPrice.toFixed(2)}`;
+      }
+    }
+
+    function selectWeight(weight, price, btn) {
+      currentBasePrice = price;
+      document.querySelectorAll('.weight-button').forEach(b => {
+        b.className = 'weight-button flex flex-col items-center justify-center py-3 px-2 rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-all';
+        const sub = b.querySelector('span:last-child');
+        if (sub) sub.className = 'font-label-sm text-label-sm text-outline mt-0.5';
+      });
+
+      btn.className = 'weight-button flex flex-col items-center justify-center py-3 px-2 rounded-xl bg-primary-container/20 text-primary shadow-sm transition-all';
+      const activeSub = btn.querySelector('span:last-child');
+      if (activeSub) activeSub.className = 'font-label-sm text-label-sm text-primary mt-0.5 font-bold';
+
+      renderPricing();
+    }
+
+    function togglePurchaseModel(subscribe) {
+      isSubscription = subscribe;
+      renderPricing();
+    }
+
+    function alterQuantity(delta) {
+      quantity = Math.max(1, Math.min(10, quantity + delta));
+      const qtyIndicator = document.getElementById('qty-indicator');
+      if (qtyIndicator) {
+        qtyIndicator.textContent = quantity;
+      }
+      renderPricing();
+    }
+
+    function toggleBookmark(btn) {
+      const icon = btn.querySelector('.material-symbols-outlined');
+      if (icon) {
+        const isFilled = icon.style.fontVariationSettings.includes("'FILL' 1");
+        if (isFilled) {
+          icon.style.fontVariationSettings = "'FILL' 0";
+          icon.classList.remove('text-primary');
+        } else {
+          icon.style.fontVariationSettings = "'FILL' 1";
+          icon.classList.add('text-primary');
+        }
+      }
+    }
+
+    function updateMainImage(thumbElement, newAlt) {
+      const mainImg = document.getElementById('main-gallery-image');
+      if (mainImg) {
+        mainImg.setAttribute('data-alt', newAlt);
+      }
+      document.querySelectorAll('.gallery-thumb').forEach(t => {
+        t.classList.remove('active-thumb', 'bg-primary/20');
+        t.classList.add('opacity-70');
+      });
+      thumbElement.classList.add('active-thumb', 'bg-primary/20');
+      thumbElement.classList.remove('opacity-70');
+    }
+
+    function switchTab(btn, tabId) {
+      document.querySelectorAll('.dossier-tab').forEach(t => {
+        t.className = 'dossier-tab px-5 py-2.5 rounded-full font-label-md text-label-md uppercase tracking-wider bg-surface-container text-on-surface-variant hover:text-on-surface transition-all';
+      });
+      btn.className = 'dossier-tab active-dossier-tab px-5 py-2.5 rounded-full font-label-md text-label-md uppercase tracking-wider bg-primary text-on-primary shadow-md transition-all';
+
+      document.querySelectorAll('.tab-pane').forEach(p => {
+        p.classList.add('hidden');
+        p.classList.remove('block');
+      });
+      const target = document.getElementById(tabId);
+      if (target) {
+        target.classList.remove('hidden');
+        target.classList.add('block');
+      }
+    }
+
+    // Grind profile active selector setup
+    document.querySelectorAll('.grind-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        document.querySelectorAll('.grind-btn').forEach(b => {
+          b.className = 'grind-btn text-left px-3 py-2.5 rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-all';
+          const primeTag = b.querySelector('span:last-child');
+          if (primeTag && primeTag.textContent.trim() === 'Prime') {
+            primeTag.className = 'text-[10px] uppercase font-bold tracking-widest bg-surface-container-highest px-1.5 py-0.5 rounded text-outline';
+          }
+        });
+        this.className = 'grind-btn active-grind text-left px-3 py-2.5 rounded-xl bg-primary text-on-primary font-label-md text-label-md flex items-center justify-between shadow-md transition-all';
+        const activePrime = this.querySelector('span:last-child');
+        if (activePrime && activePrime.textContent.trim() === 'Prime') {
+          activePrime.className = 'text-[10px] uppercase font-bold tracking-widest bg-black/20 px-1.5 py-0.5 rounded';
+        }
+      });
+    });
+  </script>
+</div>
+  </main>
+
+  
+  <!-- Global Footer -->
+  <footer class="w-full bg-surface-container-lowest text-on-surface-variant pt-16 pb-12 border-t border-surface-variant/30">
+    <div class="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center text-primary">
+              <span class="material-symbols-outlined text-[20px]">local_cafe</span>
+            </div>
+            <span class="font-serif text-xl font-bold text-on-surface">COFFEE MARKET</span>
+          </div>
+          <p class="text-sm text-outline max-w-sm leading-relaxed">
+            Direct-trade specialty coffee micro-lots, roasted to order with meticulous temperature curves and delivered with transparent farm-level provenance.
+          </p>
+          <div class="flex items-center gap-3 pt-2 text-outline">
+            <span class="px-2.5 py-1 rounded bg-surface-container text-xs font-mono">SCA 90+ Standard</span>
+            <span class="px-2.5 py-1 rounded bg-surface-container text-xs font-mono">100% Traceable</span>
+          </div>
+        </div>
+        
+        <div class="space-y-3">
+          <h4 class="font-serif text-base font-semibold text-on-surface">Curated Collections</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="shop.html" class="hover:text-primary transition-colors">Panama Geisha Reserves</a></li>
+            <li><a href="shop.html" class="hover:text-primary transition-colors">Ethiopian Heirloom Lots</a></li>
+            <li><a href="shop.html" class="hover:text-primary transition-colors">Pink Bourbon Huila</a></li>
+            <li><a href="shop.html" class="hover:text-primary transition-colors">Anaerobic Fermentations</a></li>
+            <li><a href="shop.html" class="hover:text-primary transition-colors">Cold Brew Reserve Blends</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="font-serif text-base font-semibold text-on-surface">Artisan Standards</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="index.html#tenets" class="hover:text-primary transition-colors">Direct-Trade Protocol</a></li>
+            <li><a href="product.html" class="hover:text-primary transition-colors">Cupping Score Radar</a></li>
+            <li><a href="product.html" class="hover:text-primary transition-colors">Brewing Masterclasses</a></li>
+            <li><a href="#" onclick="showToast('Farm partners catalog downloaded'); return false;" class="hover:text-primary transition-colors">Estate Partner Network</a></li>
+            <li><a href="#" onclick="showToast('SCA Certificate viewer opened'); return false;" class="hover:text-primary transition-colors">Q-Grader Verification</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="font-serif text-base font-semibold text-on-surface">Sommelier Guild</h4>
+          <p class="text-xs text-outline">Receive rare micro-lot harvest alerts 48 hours before public release.</p>
+          <form class="newsletter-form flex gap-2">
+            <input type="email" placeholder="Your sommelier email..." required class="w-full px-3 py-2 rounded-lg bg-surface-container border border-surface-variant text-xs text-on-surface focus:border-primary focus:outline-none"/>
+            <button type="submit" class="px-3.5 py-2 rounded-lg bg-primary text-on-primary font-bold text-xs hover:bg-secondary transition-colors">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-surface-variant/20 flex flex-col sm:flex-row items-center justify-between text-xs text-outline gap-4">
+        <p>© 2026 Velvet Terroir • Coffee Market Marketplace. All Rights Reserved.</p>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-primary transition-colors">Privacy Charter</a>
+          <a href="#" class="hover:text-primary transition-colors">Terms of Consignment</a>
+          <a href="#" class="hover:text-primary transition-colors">Provenance Ledger</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  
+  <!-- 1. Cart Drawer Backdrop & Slide-out Panel -->
+  <div id="cart-drawer-backdrop" onclick="closeCart()" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 drawer-backdrop"></div>
+  <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-[480px] bg-surface-container-lowest z-50 shadow-2xl flex flex-col cart-drawer border-l border-surface-variant/40">
+    
+    <!-- Drawer Header -->
+    <div class="p-6 border-b border-surface-variant/40 flex items-center justify-between bg-surface-container-low">
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary text-[24px]">shopping_bag</span>
+        <h3 class="font-serif text-lg font-bold text-on-surface">Your Reserve Collection</h3>
+      </div>
+      <button onclick="closeCart()" class="w-8 h-8 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-outline hover:text-on-surface transition-colors">
+        <span class="material-symbols-outlined text-[18px]">close</span>
+      </button>
+    </div>
+
+    <!-- Free Shipping Progress Tracker -->
+    <div class="px-6 py-3.5 bg-surface-container/40 border-b border-surface-variant/30 space-y-2">
+      <p id="shipping-progress-text" class="text-xs text-on-surface-variant"></p>
+      <div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+        <div id="shipping-progress-bar" class="h-full bg-primary transition-all duration-300" style="width: 50%;"></div>
+      </div>
+    </div>
+
+    <!-- Cart Items Scrollable List -->
+    <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4">
+      <!-- Injected dynamically by cart.js -->
+    </div>
+
+    <!-- Drawer Footer & Checkout Action -->
+    <div class="p-6 border-t border-surface-variant/40 bg-surface-container-low space-y-4">
+      <div class="space-y-2 text-sm">
+        <div class="flex justify-between text-outline">
+          <span>Subtotal</span>
+          <span id="cart-drawer-subtotal" class="font-medium text-on-surface">$0.00</span>
+        </div>
+        <div class="flex justify-between text-outline">
+          <span>White-Glove Shipping</span>
+          <span id="cart-drawer-shipping" class="font-medium text-emerald-400">Complimentary</span>
+        </div>
+        <div class="flex justify-between text-base font-bold text-on-surface pt-2 border-t border-surface-variant/40">
+          <span>Estimated Total</span>
+          <span id="cart-drawer-total" class="text-primary text-xl">$0.00</span>
+        </div>
+      </div>
+
+      <button onclick="openCheckoutModal()" class="w-full py-3.5 px-6 rounded-full bg-primary hover:bg-secondary text-on-primary font-bold text-sm tracking-wide transition-all duration-200 flex items-center justify-center gap-2 shadow-xl shadow-primary/10">
+        <span>Proceed to Reserve Checkout</span>
+        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+      </button>
+
+      <p class="text-center text-[11px] text-outline flex items-center justify-center gap-1.5">
+        <span class="material-symbols-outlined text-[14px] text-emerald-400">lock</span>
+        256-bit encrypted checkout with direct estate provenance
+      </p>
+    </div>
+  </aside>
+
+  <!-- 2. Global Search Overlay Modal -->
+  <div id="search-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-start justify-center pt-20 px-4 modal-overlay">
+    <div class="w-full max-w-2xl bg-surface-container-low rounded-2xl border border-surface-variant/60 shadow-2xl overflow-hidden modal-content">
+      
+      <!-- Search Input Bar -->
+      <div class="p-4 sm:p-5 border-b border-surface-variant/50 flex items-center gap-3 bg-surface-container">
+        <span class="material-symbols-outlined text-primary text-[22px]">search</span>
+        <input id="search-modal-input" oninput="handleSearchInput(event)" type="text" placeholder="Search single-origin lots, regions (Panama, Ethiopia...), or tasting notes..." class="w-full bg-transparent border-0 text-on-surface placeholder:text-outline text-base focus:outline-none"/>
+        <button onclick="closeSearchModal()" class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-outline hover:text-on-surface transition-colors">
+          <span class="material-symbols-outlined text-[16px]">close</span>
+        </button>
+      </div>
+
+      <!-- Quick Suggestion Tags -->
+      <div class="px-5 py-3 bg-surface-container-lowest/50 border-b border-surface-variant/30 flex items-center gap-2 text-xs overflow-x-auto">
+        <span class="text-outline uppercase text-[10px] font-semibold tracking-wider">Popular:</span>
+        <button onclick="document.getElementById('search-modal-input').value='Geisha'; handleSearchInput({target:{value:'Geisha'}})" class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant hover:text-primary transition-colors">Geisha</button>
+        <button onclick="document.getElementById('search-modal-input').value='Ethiopia'; handleSearchInput({target:{value:'Ethiopia'}})" class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant hover:text-primary transition-colors">Ethiopia</button>
+        <button onclick="document.getElementById('search-modal-input').value='Anaerobic'; handleSearchInput({target:{value:'Anaerobic'}})" class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant hover:text-primary transition-colors">Anaerobic</button>
+        <button onclick="document.getElementById('search-modal-input').value='Jasmine'; handleSearchInput({target:{value:'Jasmine'}})" class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant hover:text-primary transition-colors">Jasmine</button>
+      </div>
+
+      <!-- Search Results List -->
+      <div id="search-results-list" class="p-5 max-h-96 overflow-y-auto space-y-2">
+        <!-- Rendered by main.js -->
+      </div>
+      
+      <div class="px-5 py-3 bg-surface-container text-right text-[11px] text-outline border-t border-surface-variant/40">
+        Press <kbd class="px-1.5 py-0.5 rounded bg-surface-container-high font-mono text-on-surface">Esc</kbd> to close
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Checkout Modal Dialog -->
+  <div id="checkout-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4 modal-overlay">
+    <div class="w-full max-w-xl bg-surface-container-low rounded-2xl border border-surface-variant/70 shadow-2xl overflow-hidden modal-content">
+      <div class="p-6 border-b border-surface-variant/50 flex items-center justify-between bg-surface-container">
+        <div class="flex items-center gap-2.5">
+          <span class="material-symbols-outlined text-primary text-[22px]">lock</span>
+          <h3 class="font-serif text-lg font-bold text-on-surface">Artisan Reserve Checkout</h3>
+        </div>
+        <button onclick="closeCheckoutModal()" class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-outline hover:text-on-surface transition-colors">
+          <span class="material-symbols-outlined text-[16px]">close</span>
+        </button>
+      </div>
+
+      <form onsubmit="processCheckout(event)" class="p-6 space-y-5 max-h-[75vh] overflow-y-auto">
+        <!-- Order Summary Box -->
+        <div class="p-4 rounded-xl bg-surface-container border border-surface-variant/40">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-secondary mb-2">Order Allotment</h4>
+          <div id="checkout-order-summary"></div>
+        </div>
+
+        <!-- Shipping Information -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-secondary">Delivery Destination</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs text-outline mb-1">Full Name</label>
+              <input type="text" required value="Mahmoud Al-Sayed" class="w-full px-3.5 py-2.5 rounded-lg bg-surface-container border border-surface-variant text-on-surface text-sm focus:border-primary focus:outline-none"/>
+            </div>
+            <div>
+              <label class="block text-xs text-outline mb-1">Email for Provenance Certificate</label>
+              <input type="email" required value="clientele@sommelier.coffee" class="w-full px-3.5 py-2.5 rounded-lg bg-surface-container border border-surface-variant text-on-surface text-sm focus:border-primary focus:outline-none"/>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs text-outline mb-1">Street Address</label>
+            <input type="text" required value="Al-Andalus District, Villa 42" class="w-full px-3.5 py-2.5 rounded-lg bg-surface-container border border-surface-variant text-on-surface text-sm focus:border-primary focus:outline-none"/>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <div>
+              <label class="block text-xs text-outline mb-1">City</label>
+              <input type="text" required value="Cairo" class="w-full px-3.5 py-2.5 rounded-lg bg-surface-container border border-surface-variant text-on-surface text-sm focus:border-primary focus:outline-none"/>
+            </div>
+            <div>
+              <label class="block text-xs text-outline mb-1">Country</label>
+              <input type="text" required value="Egypt" class="w-full px-3.5 py-2.5 rounded-lg bg-surface-container border border-surface-variant text-on-surface text-sm focus:border-primary focus:outline-none"/>
+            </div>
+            <div class="col-span-2 sm:col-span-1">
+              <label class="block text-xs text-outline mb-1">Postal Code</label>
+              <input type="text" required value="11511" class="w-full px-3.5 py-2.5 rounded-lg bg-surface-container border border-surface-variant text-on-surface text-sm focus:border-primary focus:outline-none"/>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Method -->
+        <div class="space-y-3 pt-2">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-secondary">Payment Method</h4>
+          <div class="grid grid-cols-2 gap-3">
+            <label class="flex items-center gap-2 p-3 rounded-lg bg-surface-container border border-primary/40 cursor-pointer">
+              <input type="radio" name="payment" checked class="text-primary focus:ring-0"/>
+              <span class="text-xs font-medium text-on-surface">Credit / Debit Card</span>
+            </label>
+            <label class="flex items-center gap-2 p-3 rounded-lg bg-surface-container border border-surface-variant cursor-pointer">
+              <input type="radio" name="payment" class="text-primary focus:ring-0"/>
+              <span class="text-xs font-medium text-on-surface">Cash on Delivery</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button id="checkout-submit-btn" type="submit" class="w-full py-3.5 px-6 rounded-full bg-primary hover:bg-secondary text-on-primary font-bold text-sm tracking-wide transition-all shadow-xl shadow-primary/10">
+          Confirm & Place Order
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 4. Order Confirmation Modal -->
+  <div id="order-confirmation-modal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex items-center justify-center p-4 modal-overlay">
+    <div class="w-full max-w-md bg-surface-container-low rounded-2xl border border-primary/40 p-8 text-center space-y-5 modal-content shadow-2xl">
+      <div class="w-16 h-16 rounded-full bg-primary/15 border border-primary/40 flex items-center justify-center mx-auto text-primary">
+        <span class="material-symbols-outlined text-[36px]">verified</span>
+      </div>
+      <div>
+        <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-bold uppercase tracking-wider">Harvest Allotment Secured</span>
+        <h3 class="font-serif text-2xl font-bold text-on-surface mt-3">Order Confirmed</h3>
+        <p class="text-outline text-xs mt-1">Order Identifier: <strong id="confirmed-order-number" class="text-primary font-mono text-sm">VT-894210</strong></p>
+      </div>
+      <p class="text-sm text-on-surface-variant leading-relaxed">
+        Your bespoke micro-lot reservation has been locked in with our master roaster. Your coffee will be roasted fresh to order and nitrogen-flushed for optimal terroir preservation.
+      </p>
+      <div class="pt-2">
+        <button onclick="closeConfirmationModal()" class="w-full py-3 rounded-full bg-primary hover:bg-secondary text-on-primary font-bold text-xs uppercase tracking-wider transition-colors">
+          Return to Marketplace
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Mobile Menu Drawer -->
+  <div id="mobile-menu-backdrop" onclick="closeMobileMenu()" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 drawer-backdrop"></div>
+  <aside id="mobile-menu-drawer" class="fixed top-0 left-0 h-full w-72 bg-surface-container-lowest z-50 shadow-2xl flex flex-col mobile-menu-drawer border-r border-surface-variant/40">
+    <div class="p-6 border-b border-surface-variant/40 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-[22px]">local_cafe</span>
+        <span class="font-serif font-bold text-lg text-on-surface">COFFEE MARKET</span>
+      </div>
+      <button onclick="closeMobileMenu()" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-outline">
+        <span class="material-symbols-outlined text-[18px]">close</span>
+      </button>
+    </div>
+    <nav class="p-6 space-y-4 text-sm font-medium flex-1">
+      <a href="index.html" class="flex items-center gap-3 py-2 text-on-surface hover:text-primary transition-colors">
+        <span class="material-symbols-outlined text-[18px]">home</span> Home
+      </a>
+      <a href="shop.html" class="flex items-center gap-3 py-2 text-on-surface hover:text-primary transition-colors">
+        <span class="material-symbols-outlined text-[18px]">inventory_2</span> Reserve Lots
+      </a>
+      <a href="product.html" class="flex items-center gap-3 py-2 text-on-surface hover:text-primary transition-colors">
+        <span class="material-symbols-outlined text-[18px]">workspace_premium</span> Single Geisha Lot
+      </a>
+      <a href="shop.html?category=origins" class="flex items-center gap-3 py-2 text-on-surface hover:text-primary transition-colors">
+        <span class="material-symbols-outlined text-[18px]">public</span> Origins & Terroir
+      </a>
+      <a href="index.html#tenets" class="flex items-center gap-3 py-2 text-on-surface hover:text-primary transition-colors">
+        <span class="material-symbols-outlined text-[18px]">handshake</span> Direct Trade Protocol
+      </a>
+    </nav>
+    <div class="p-6 border-t border-surface-variant/40">
+      <button onclick="closeMobileMenu(); openCart();" class="w-full py-3 rounded-full bg-primary text-on-primary font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2">
+        <span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+        <span>View Cart</span>
+      </button>
+    </div>
+  </aside>
+
+
+  <!-- Firebase SDK & Services -->
+  <script type="module" src="js/firebase.js"></script>
+
+  <!-- Core Scripts -->
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    
+    let currentBasePrice = 54.00;
+    let isSubscription = false;
+    let quantity = 1;
+
+    function renderPricing() {
+      const discount = isSubscription ? 0.9 : 1.0;
+      const unitPrice = currentBasePrice * discount;
+      const totalPrice = unitPrice * quantity;
+
+      const priceDisplay = document.getElementById('price-display');
+      const cartCtaText = document.getElementById('cart-cta-text');
+
+      if (priceDisplay) {
+        priceDisplay.textContent = `$${unitPrice.toFixed(2)}`;
+      }
+      if (cartCtaText) {
+        cartCtaText.textContent = `Add To Tasting Cart · $${totalPrice.toFixed(2)}`;
+      }
+    }
+
+    function selectWeight(weight, price, btn) {
+      currentBasePrice = price;
+      document.querySelectorAll('.weight-button').forEach(b => {
+        b.className = 'weight-button flex flex-col items-center justify-center py-3 px-2 rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-all';
+        const sub = b.querySelector('span:last-child');
+        if (sub) sub.className = 'font-label-sm text-label-sm text-outline mt-0.5';
+      });
+
+      btn.className = 'weight-button flex flex-col items-center justify-center py-3 px-2 rounded-xl bg-primary-container/20 text-primary shadow-sm transition-all';
+      const activeSub = btn.querySelector('span:last-child');
+      if (activeSub) activeSub.className = 'font-label-sm text-label-sm text-primary mt-0.5 font-bold';
+
+      renderPricing();
+    }
+
+    function togglePurchaseModel(subscribe) {
+      isSubscription = subscribe;
+      renderPricing();
+    }
+
+    function alterQuantity(delta) {
+      quantity = Math.max(1, Math.min(10, quantity + delta));
+      const qtyIndicator = document.getElementById('qty-indicator');
+      if (qtyIndicator) {
+        qtyIndicator.textContent = quantity;
+      }
+      renderPricing();
+    }
+
+    function toggleBookmark(btn) {
+      const icon = btn.querySelector('.material-symbols-outlined');
+      if (icon) {
+        const isFilled = icon.style.fontVariationSettings.includes("'FILL' 1");
+        if (isFilled) {
+          icon.style.fontVariationSettings = "'FILL' 0";
+          icon.classList.remove('text-primary');
+        } else {
+          icon.style.fontVariationSettings = "'FILL' 1";
+          icon.classList.add('text-primary');
+        }
+      }
+    }
+
+    function updateMainImage(thumbElement, newAlt) {
+      const mainImg = document.getElementById('main-gallery-image');
+      if (mainImg) {
+        mainImg.setAttribute('data-alt', newAlt);
+      }
+      document.querySelectorAll('.gallery-thumb').forEach(t => {
+        t.classList.remove('active-thumb', 'bg-primary/20');
+        t.classList.add('opacity-70');
+      });
+      thumbElement.classList.add('active-thumb', 'bg-primary/20');
+      thumbElement.classList.remove('opacity-70');
+    }
+
+    function switchTab(btn, tabId) {
+      document.querySelectorAll('.dossier-tab').forEach(t => {
+        t.className = 'dossier-tab px-5 py-2.5 rounded-full font-label-md text-label-md uppercase tracking-wider bg-surface-container text-on-surface-variant hover:text-on-surface transition-all';
+      });
+      btn.className = 'dossier-tab active-dossier-tab px-5 py-2.5 rounded-full font-label-md text-label-md uppercase tracking-wider bg-primary text-on-primary shadow-md transition-all';
+
+      document.querySelectorAll('.tab-pane').forEach(p => {
+        p.classList.add('hidden');
+        p.classList.remove('block');
+      });
+      const target = document.getElementById(tabId);
+      if (target) {
+        target.classList.remove('hidden');
+        target.classList.add('block');
+      }
+    }
+
+    // Grind profile active selector setup
+    document.querySelectorAll('.grind-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        document.querySelectorAll('.grind-btn').forEach(b => {
+          b.className = 'grind-btn text-left px-3 py-2.5 rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-all';
+          const primeTag = b.querySelector('span:last-child');
+          if (primeTag && primeTag.textContent.trim() === 'Prime') {
+            primeTag.className = 'text-[10px] uppercase font-bold tracking-widest bg-surface-container-highest px-1.5 py-0.5 rounded text-outline';
+          }
+        });
+        this.className = 'grind-btn active-grind text-left px-3 py-2.5 rounded-xl bg-primary text-on-primary font-label-md text-label-md flex items-center justify-between shadow-md transition-all';
+        const activePrime = this.querySelector('span:last-child');
+        if (activePrime && activePrime.textContent.trim() === 'Prime') {
+          activePrime.className = 'text-[10px] uppercase font-bold tracking-widest bg-black/20 px-1.5 py-0.5 rounded';
+        }
+      });
+    });
+  
+    
+    // Global function to add product to real cart
+    let selectedWeightStr = '250g';
+    let selectedGrindStr = 'Whole Bean';
+
+    // Hook into selectWeight
+    const _origSelectWeight = selectWeight;
+    selectWeight = function(weight, price, btn) {
+      selectedWeightStr = weight;
+      _origSelectWeight(weight, price, btn);
+    };
+
+    // Hook into grind button clicks to record grind string
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.grind-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const text = this.querySelector('span:first-child') ? this.querySelector('span:first-child').textContent.trim() : 'Whole Bean';
+          selectedGrindStr = text;
+        });
+      });
+    });
+
+    function addProductToCart() {
+      const discount = isSubscription ? 0.9 : 1.0;
+      const unitPrice = currentBasePrice * discount;
+      const title = isSubscription
+        ? 'Hacienda La Esmeralda Geisha (Subscription)'
+        : 'Hacienda La Esmeralda Geisha';
+
+      window.addToCart({
+        id: 'la-esmeralda',
+        title: title,
+        origin: 'Boquete, Panama • Lot #ES-2025-04A',
+        weight: selectedWeightStr,
+        grind: selectedGrindStr,
+        price: unitPrice,
+        quantity: quantity,
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD6ZAm0DzmY9AanbHv2OXgpxChgLTCBrpSum-SpWYp8S6OUBU48DRzwOQODD2XmulA0iI2qcmz5O1kzjIh_dZ3HZgAcT1dDr1dK9jUpJ8nF2G58YF7359-VtCU4RQ2dPyhzfMCYEJxzJDeSaqHqZcTtnWAyYbtRDAJQncgmeVtUxi9SyHbFH6OJ5aBL5gZNaYpoakpBS55g5EUKf8e2nEYnT6F87lkNSzmVVEa2pjU'
+      });
+    }
+
+    // Interactive Review submission
+    function handleReviewSubmit(e) {
+      e.preventDefault();
+      showToast('Thank you for your sommelier cupping review! Pending Q-Grader moderation.');
+      e.target.reset();
+    }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html class="dark" lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>لوحة استقبال وإدارة طلبات العملاء | سوق القهوة المختصة</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#131313",
+            "surface-dim": "#131313",
+            "surface-bright": "#393939",
+            "surface-container-lowest": "#0e0e0e",
+            "surface-container-low": "#1c1b1b",
+            "surface-container": "#201f1f",
+            "surface-container-high": "#2a2a2a",
+            "surface-container-highest": "#353534",
+            "on-surface": "#e5e2e1",
+            "on-surface-variant": "#d5c3b8",
+            "primary": "#f4bb92",
+            "primary-container": "#8b5e3c",
+            "on-primary-container": "#ffe3d1",
+            "secondary": "#fab983",
+            "secondary-container": "#6b3e13",
+            "on-secondary-container": "#ebab76",
+            "outline": "#9e8e84",
+            "outline-variant": "#51443c",
+            "error": "#ffb4ab",
+            "error-container": "#93000a",
+            "tertiary": "#c8c6c5"
+          },
+          fontFamily: {
+            sans: ["'Cairo'", "system-ui", "sans-serif"],
+            serif: ["'Cairo'", "'Playfair Display'", "Georgia", "serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="css/style.css"/>
+
+  <style>
+    @media print {
+      body * { visibility: hidden; }
+      #printable-invoice, #printable-invoice * { visibility: visible; }
+      #printable-invoice { position: absolute; left: 0; top: 0; width: 100%; }
+    }
+  </style>
+</head>
+
+<body class="bg-surface font-sans text-on-surface antialiased min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+
+  <!-- Top Real-time Bar -->
+  <header class="sticky top-0 z-40 bg-surface-container-lowest/95 backdrop-blur-md border-b border-surface-variant/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      
+      <!-- Brand & Title -->
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="w-10 h-10 rounded-full bg-primary-container/30 border border-primary/40 flex items-center justify-center text-primary hover:scale-105 transition-transform" title="العودة للمتجر">
+          <span class="material-symbols-outlined text-[24px]">storefront</span>
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-lg sm:text-xl font-bold text-on-surface">لوحة استقبال طلبات العملاء</h1>
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[11px] font-semibold">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              تحديث فوري مباشر
+            </span>
+          </div>
+          <p class="text-xs text-outline hidden sm:block">إدارة المبيعات، تفاصيل عناوين التوصيل، وتحديث حالات الشحن والتسليم</p>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        <button onclick="addDemoOrder()" class="px-3 sm:px-4 py-2 rounded-full bg-surface-container hover:bg-surface-container-high border border-surface-variant/60 text-xs font-semibold text-primary flex items-center gap-1.5 transition-colors" title="إنشاء طلب تجريبي للتجربة">
+          <span class="material-symbols-outlined text-[16px]">add_circle</span>
+          <span class="hidden md:inline">طلب تجريبي</span>
+        </button>
+
+        <button onclick="exportOrdersToCSV()" class="px-3 sm:px-4 py-2 rounded-full bg-surface-container hover:bg-surface-container-high border border-surface-variant/60 text-xs font-semibold text-on-surface flex items-center gap-1.5 transition-colors" title="تصدير بيانات الطلبات">
+          <span class="material-symbols-outlined text-[16px]">download</span>
+          <span class="hidden md:inline">تصدير CSV</span>
+        </button>
+
+        <a href="index.html" class="px-4 py-2 rounded-full bg-primary text-surface-container-lowest font-bold text-xs hover:bg-secondary transition-colors flex items-center gap-1.5 shadow-md">
+          <span class="material-symbols-outlined text-[16px]">home</span>
+          <span>المتجر</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+
+    <!-- Audio Alert Element -->
+    <audio id="order-alert-sound" preload="auto">
+      <source src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- 1. Statistics Metric Cards -->
+    <section class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      
+      <!-- Total Orders -->
+      <div class="bg-surface-container-low p-5 sm:p-6 rounded-2xl border border-surface-variant/40 relative overflow-hidden">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs sm:text-sm text-outline font-medium">إجمالي الطلبات</span>
+          <div class="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined text-[20px]">orders</span>
+          </div>
+        </div>
+        <div class="flex items-baseline gap-2">
+          <span class="text-2xl sm:text-3xl font-extrabold text-on-surface" id="stat-total-orders">0</span>
+          <span class="text-xs text-outline">طلب</span>
+        </div>
+      </div>
+
+      <!-- New / Pending Orders -->
+      <div class="bg-surface-container-low p-5 sm:p-6 rounded-2xl border border-amber-500/30 relative overflow-hidden bg-gradient-to-br from-amber-500/5 to-transparent">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs sm:text-sm text-amber-300 font-semibold">طلبات جديدة</span>
+          <div class="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400">
+            <span class="material-symbols-outlined text-[20px]">notifications_active</span>
+          </div>
+        </div>
+        <div class="flex items-baseline gap-2">
+          <span class="text-2xl sm:text-3xl font-extrabold text-amber-400" id="stat-new-orders">0</span>
+          <span class="text-xs text-amber-300/80">بانتظار التحضير</span>
+        </div>
+      </div>
+
+      <!-- Total Sales Revenue -->
+      <div class="bg-surface-container-low p-5 sm:p-6 rounded-2xl border border-surface-variant/40 relative overflow-hidden">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs sm:text-sm text-outline font-medium">إجمالي المبيعات</span>
+          <div class="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+            <span class="material-symbols-outlined text-[20px]">payments</span>
+          </div>
+        </div>
+        <div class="flex items-baseline gap-2">
+          <span class="text-2xl sm:text-3xl font-extrabold text-emerald-400" id="stat-total-revenue">$0.00</span>
+        </div>
+      </div>
+
+      <!-- Average Order Value -->
+      <div class="bg-surface-container-low p-5 sm:p-6 rounded-2xl border border-surface-variant/40 relative overflow-hidden">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs sm:text-sm text-outline font-medium">متوسط قيمة الطلب</span>
+          <div class="w-9 h-9 rounded-xl bg-secondary/10 border border-secondary/20 flex items-center justify-center text-secondary">
+            <span class="material-symbols-outlined text-[20px]">analytics</span>
+          </div>
+        </div>
+        <div class="flex items-baseline gap-2">
+          <span class="text-2xl sm:text-3xl font-extrabold text-on-surface" id="stat-avg-order">$0.00</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 2. Controls & Filter Bar -->
+    <section class="bg-surface-container-low p-4 sm:p-5 rounded-2xl border border-surface-variant/40 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      
+      <!-- Search Input -->
+      <div class="relative flex-1 max-w-md">
+        <span class="material-symbols-outlined absolute right-3.5 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+        <input 
+          type="text" 
+          id="dashboard-search-input" 
+          oninput="handleDashboardSearch(event)"
+          placeholder="ابحث برقم الطلب، اسم العميل، الهاتف، أو المدينة..." 
+          class="w-full bg-surface-container border border-surface-variant/60 rounded-full pr-11 pl-4 py-2.5 text-xs sm:text-sm text-on-surface placeholder-outline focus:outline-none focus:border-primary transition-colors"
+        />
+      </div>
+
+      <!-- Status Filter Tabs -->
+      <div class="flex items-center gap-1.5 overflow-x-auto pb-2 md:pb-0" id="status-filter-tabs">
+        <button onclick="setDashboardStatusFilter('all', this)" class="status-tab active px-3.5 py-1.5 rounded-full bg-primary text-surface-container-lowest text-xs font-bold transition-colors whitespace-nowrap">
+          الكل (<span id="count-all">0</span>)
+        </button>
+        <button onclick="setDashboardStatusFilter('new', this)" class="status-tab px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface text-xs font-medium transition-colors whitespace-nowrap">
+          جديد 🟡 (<span id="count-new">0</span>)
+        </button>
+        <button onclick="setDashboardStatusFilter('preparing', this)" class="status-tab px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface text-xs font-medium transition-colors whitespace-nowrap">
+          قيد التحضير 🟠 (<span id="count-preparing">0</span>)
+        </button>
+        <button onclick="setDashboardStatusFilter('shipped', this)" class="status-tab px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface text-xs font-medium transition-colors whitespace-nowrap">
+          تم الشحن 🔵 (<span id="count-shipped">0</span>)
+        </button>
+        <button onclick="setDashboardStatusFilter('delivered', this)" class="status-tab px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface text-xs font-medium transition-colors whitespace-nowrap">
+          تم التوصيل 🟢 (<span id="count-delivered">0</span>)
+        </button>
+        <button onclick="setDashboardStatusFilter('cancelled', this)" class="status-tab px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface text-xs font-medium transition-colors whitespace-nowrap">
+          ملغي 🔴 (<span id="count-cancelled">0</span>)
+        </button>
+      </div>
+
+    </section>
+
+    <!-- 3. Orders Container -->
+    <section>
+      
+      <!-- Desktop Table View -->
+      <div class="hidden lg:block bg-surface-container-low rounded-2xl border border-surface-variant/40 overflow-hidden shadow-xl">
+        <table class="w-full text-right border-collapse">
+          <thead>
+            <tr class="bg-surface-container border-b border-surface-variant/40 text-xs font-bold text-outline">
+              <th class="py-4 px-6">رقم الطلب والتاريخ</th>
+              <th class="py-4 px-6">بيانات العميل والتوصيل</th>
+              <th class="py-4 px-6">المحاصيل والكميات</th>
+              <th class="py-4 px-6">الإجمالي والدفع</th>
+              <th class="py-4 px-6 text-center">حالة الطلب</th>
+              <th class="py-4 px-6 text-center">الإجراءات</th>
+            </tr>
+          </thead>
+          <tbody id="orders-table-body" class="divide-y divide-surface-variant/30 text-xs">
+            <!-- Dynamic order rows rendered here -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Mobile / Tablet Cards View -->
+      <div id="orders-cards-container" class="lg:hidden space-y-4">
+        <!-- Dynamic mobile order cards rendered here -->
+      </div>
+
+      <!-- Empty State -->
+      <div id="dashboard-empty-state" class="hidden py-24 text-center space-y-4 bg-surface-container-low rounded-2xl border border-surface-variant/40">
+        <div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mx-auto text-outline">
+          <span class="material-symbols-outlined text-[32px]">inbox</span>
+        </div>
+        <h3 class="text-base font-bold text-on-surface">لا توجد طلبات واردة حالياً</h3>
+        <p class="text-xs text-outline max-w-sm mx-auto leading-relaxed">
+          بمجرد أن يقوم أحد العملاء بطلب محصول من المتجر، ستظهر بيانات الطلب هنا فورياً وبشكل تلقائي!
+        </p>
+        <button onclick="addDemoOrder()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-surface-container-lowest font-bold text-xs hover:bg-secondary transition-colors shadow-md">
+          <span class="material-symbols-outlined text-[18px]">add_circle</span>
+          <span>إضافة طلب تجريبي لتجربة الداشبورد</span>
+        </button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Detailed Invoice & Order Modal -->
+  <div id="order-detail-modal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <div class="modal-content relative w-full max-w-2xl bg-surface-container-low rounded-3xl border border-surface-variant/60 shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+      
+      <!-- Modal Header -->
+      <div class="p-6 bg-surface-container border-b border-surface-variant/40 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-[24px]">receipt_long</span>
+          <h3 class="text-base font-bold text-on-surface">تفاصيل وفاتورة الطلب</h3>
+        </div>
+        <button onclick="closeOrderDetailModal()" class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-outline hover:text-on-surface transition-colors">
+          <span class="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      </div>
+
+      <!-- Printable Invoice Content -->
+      <div id="printable-invoice" class="p-6 space-y-6 overflow-y-auto flex-1 text-xs sm:text-sm">
+        <!-- Rendered by JavaScript -->
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-4 bg-surface-container border-t border-surface-variant/40 flex items-center justify-between gap-3">
+        <button onclick="window.print()" class="px-5 py-2.5 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-semibold text-xs flex items-center gap-2 transition-colors">
+          <span class="material-symbols-outlined text-[16px]">print</span>
+          <span>طباعة الفاتورة</span>
+        </button>
+
+        <button onclick="closeOrderDetailModal()" class="px-6 py-2.5 rounded-full bg-primary text-surface-container-lowest font-bold text-xs hover:bg-secondary transition-colors">
+          <span>إغلاق</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification Alert -->
+  <div class="fixed bottom-6 left-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 bg-surface-container-high border border-surface-variant/60 px-5 py-3.5 rounded-full shadow-2xl" id="toast-notify">
+    <span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">notifications</span>
+    <span class="text-xs font-bold text-on-surface" id="toast-text">تم تحديث البيانات</span>
+  </div>
+
+  <!-- Firebase Script as Module -->
+  <script type="module" src="js/firebase.js"></script>
+
+  <!-- Dashboard Controller Script -->
+  <script>
+    const ORDERS_STORAGE_KEY = 'coffee_market_orders';
+    let allOrders = [];
+    let currentFilter = 'all';
+    let searchQuery = '';
+
+    // Status translations and styles
+    const STATUS_CONFIG = {
+      'new': { label: 'طلب جديد 🟡', bg: 'bg-amber-500/10', text: 'text-amber-400', border: 'border-amber-500/20' },
+      'preparing': { label: 'قيد التحضير 🟠', bg: 'bg-orange-500/10', text: 'text-orange-400', border: 'border-orange-500/20' },
+      'shipped': { label: 'تم الشحن 🔵', bg: 'bg-blue-500/10', text: 'text-blue-400', border: 'border-blue-500/20' },
+      'delivered': { label: 'تم التوصيل 🟢', bg: 'bg-emerald-500/10', text: 'text-emerald-400', border: 'border-emerald-500/20' },
+      'cancelled': { label: 'ملغي 🔴', bg: 'bg-rose-500/10', text: 'text-rose-400', border: 'border-rose-500/20' }
+    };
+
+    // Load orders from LocalStorage
+    function loadLocalOrders() {
+      try {
+        const raw = localStorage.getItem(ORDERS_STORAGE_KEY);
+        if (raw) {
+          return JSON.parse(raw);
+        }
+      } catch (err) {
+        console.error('Error reading local orders:', err);
+      }
+      return [];
+    }
+
+    // Save orders to LocalStorage
+    function saveLocalOrders(orders) {
+      try {
+        localStorage.setItem(ORDERS_STORAGE_KEY, JSON.stringify(orders));
+      } catch (err) {
+        console.error('Error saving local orders:', err);
+      }
+    }
+
+    // Merge orders from Firestore and LocalStorage safely
+    function mergeOrders(firebaseOrders) {
+      const local = loadLocalOrders();
+      const map = new Map();
+
+      // Put firebase orders in map
+      if (Array.isArray(firebaseOrders)) {
+        firebaseOrders.forEach(o => {
+          if (o.orderId) map.set(o.orderId, o);
+        });
+      }
+
+      // Put local orders in map if not present
+      local.forEach(o => {
+        if (o.orderId) {
+          if (!map.has(o.orderId)) {
+            map.set(o.orderId, o);
+          } else {
+            // Keep the local status if updated locally
+            const fb = map.get(o.orderId);
+            map.set(o.orderId, { ...fb, ...o });
+          }
+        }
+      });
+
+      // Convert to array sorted by date descending
+      const merged = Array.from(map.values()).sort((a, b) => {
+        const dateA = new Date(a.createdAt || 0);
+        const dateB = new Date(b.createdAt || 0);
+        return dateB - dateA;
+      });
+
+      return merged;
+    }
+
+    // Update Dashboard Metrics
+    function updateMetrics() {
+      const totalCount = allOrders.length;
+      const newOrders = allOrders.filter(o => o.status === 'new').length;
+      const totalRevenue = allOrders
+        .filter(o => o.status !== 'cancelled')
+        .reduce((sum, o) => sum + (parseFloat(o.total) || 0), 0);
+      const validOrdersCount = allOrders.filter(o => o.status !== 'cancelled').length;
+      const avgOrder = validOrdersCount > 0 ? (totalRevenue / validOrdersCount) : 0;
+
+      document.getElementById('stat-total-orders').textContent = totalCount;
+      document.getElementById('stat-new-orders').textContent = newOrders;
+      document.getElementById('stat-total-revenue').textContent = `$${totalRevenue.toFixed(2)}`;
+      document.getElementById('stat-avg-order').textContent = `$${avgOrder.toFixed(2)}`;
+
+      // Update Tab Counter Badges
+      document.getElementById('count-all').textContent = totalCount;
+      document.getElementById('count-new').textContent = newOrders;
+      document.getElementById('count-preparing').textContent = allOrders.filter(o => o.status === 'preparing').length;
+      document.getElementById('count-shipped').textContent = allOrders.filter(o => o.status === 'shipped').length;
+      document.getElementById('count-delivered').textContent = allOrders.filter(o => o.status === 'delivered').length;
+      document.getElementById('count-cancelled').textContent = allOrders.filter(o => o.status === 'cancelled').length;
+    }
+
+    // Filter & Search Orders
+    function getFilteredOrders() {
+      return allOrders.filter(order => {
+        // Status filter
+        if (currentFilter !== 'all' && order.status !== currentFilter) {
+          return false;
+        }
+
+        // Search query
+        if (searchQuery) {
+          const q = searchQuery.toLowerCase();
+          const matchId = (order.orderId || '').toLowerCase().includes(q);
+          const matchName = (order.customerName || '').toLowerCase().includes(q);
+          const matchPhone = (order.phone || '').toLowerCase().includes(q);
+          const matchCity = (order.city || '').toLowerCase().includes(q);
+          const matchItems = (order.items || []).some(i => (i.title || '').toLowerCase().includes(q));
+
+          if (!matchId && !matchName && !matchPhone && !matchCity && !matchItems) {
+            return false;
+          }
+        }
+
+        return true;
+      });
+    }
+
+    // Render Orders to Table and Cards
+    function renderOrders() {
+      updateMetrics();
+      const filtered = getFilteredOrders();
+
+      const tableBody = document.getElementById('orders-table-body');
+      const cardsContainer = document.getElementById('orders-cards-container');
+      const emptyState = document.getElementById('dashboard-empty-state');
+
+      if (filtered.length === 0) {
+        if (tableBody) tableBody.innerHTML = '';
+        if (cardsContainer) cardsContainer.innerHTML = '';
+        if (emptyState) emptyState.classList.remove('hidden');
+        return;
+      }
+
+      if (emptyState) emptyState.classList.add('hidden');
+
+      // 1. Render Table Rows
+      if (tableBody) {
+        tableBody.innerHTML = filtered.map(order => {
+          const status = STATUS_CONFIG[order.status] || STATUS_CONFIG['new'];
+          const itemsList = (order.items || []).map(i => `
+            <div class="text-on-surface-variant py-0.5 truncate max-w-xs">
+              <span class="text-primary font-bold">${i.quantity}x</span> ${i.title} <span class="text-outline text-[11px]">(${i.weight || '250g'})</span>
+            </div>
+          `).join('');
+
+          return `
+            <tr class="hover:bg-surface-container/60 transition-colors">
+              <!-- Order ID & Date -->
+              <td class="py-4 px-6">
+                <span class="font-mono font-bold text-primary text-sm">${order.orderId}</span>
+                <p class="text-outline text-[11px] mt-0.5">${order.createdAtFormatted || new Date(order.createdAt).toLocaleString('ar-EG')}</p>
+              </td>
+
+              <!-- Customer Details -->
+              <td class="py-4 px-6">
+                <p class="font-bold text-on-surface text-sm">${order.customerName || 'عميل'}</p>
+                <div class="flex items-center gap-2 mt-1 text-outline text-[11px]">
+                  ${order.phone ? `
+                    <a href="tel:${order.phone}" class="hover:text-primary flex items-center gap-1 font-mono">
+                      <span class="material-symbols-outlined text-[14px]">call</span>
+                      <span dir="ltr">${order.phone}</span>
+                    </a>
+                  ` : ''}
+                  ${order.city ? `<span>• ${order.city}</span>` : ''}
+                </div>
+                ${order.address ? `<p class="text-[11px] text-outline truncate max-w-[200px] mt-0.5">${order.address}</p>` : ''}
+              </td>
+
+              <!-- Items -->
+              <td class="py-4 px-6">
+                ${itemsList}
+              </td>
+
+              <!-- Total & Payment -->
+              <td class="py-4 px-6">
+                <p class="font-serif font-bold text-primary text-sm">$${(parseFloat(order.total) || 0).toFixed(2)}</p>
+                <span class="inline-block mt-0.5 px-2 py-0.5 rounded-full bg-surface-container-highest text-outline text-[10px] font-medium">
+                  ${order.paymentMethod || 'الدفع عند الاستلام'}
+                </span>
+              </td>
+
+              <!-- Status Dropdown -->
+              <td class="py-4 px-6 text-center">
+                <select 
+                  onchange="changeOrderStatus('${order.orderId}', this.value)"
+                  class="bg-surface-container border border-surface-variant/60 rounded-full px-3 py-1.5 text-xs font-bold ${status.text} focus:outline-none focus:border-primary transition-colors cursor-pointer"
+                >
+                  <option value="new" ${order.status === 'new' ? 'selected' : ''}>طلب جديد 🟡</option>
+                  <option value="preparing" ${order.status === 'preparing' ? 'selected' : ''}>قيد التحضير 🟠</option>
+                  <option value="shipped" ${order.status === 'shipped' ? 'selected' : ''}>تم الشحن 🔵</option>
+                  <option value="delivered" ${order.status === 'delivered' ? 'selected' : ''}>تم التوصيل 🟢</option>
+                  <option value="cancelled" ${order.status === 'cancelled' ? 'selected' : ''}>ملغي 🔴</option>
+                </select>
+              </td>
+
+              <!-- Actions -->
+              <td class="py-4 px-6 text-center">
+                <div class="flex items-center justify-center gap-2">
+                  <button onclick="viewOrderDetail('${order.orderId}')" class="w-8 h-8 rounded-full bg-surface-container hover:bg-primary/20 text-outline hover:text-primary flex items-center justify-center transition-colors" title="عرض تفاصيل الفاتورة">
+                    <span class="material-symbols-outlined text-[18px]">visibility</span>
+                  </button>
+                  <button onclick="deleteOrderRecord('${order.orderId}')" class="w-8 h-8 rounded-full bg-surface-container hover:bg-error/20 text-outline hover:text-error flex items-center justify-center transition-colors" title="حذف الطلب">
+                    <span class="material-symbols-outlined text-[18px]">delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          `;
+        }).join('');
+      }
+
+      // 2. Render Mobile Cards
+      if (cardsContainer) {
+        cardsContainer.innerHTML = filtered.map(order => {
+          const status = STATUS_CONFIG[order.status] || STATUS_CONFIG['new'];
+          const itemsList = (order.items || []).map(i => `
+            <div class="flex justify-between text-xs py-1 text-on-surface-variant border-b border-surface-variant/20">
+              <span>${i.quantity}x ${i.title} (${i.weight || '250g'})</span>
+              <span class="text-primary font-bold">$${((parseFloat(i.price) || 0) * (i.quantity || 1)).toFixed(2)}</span>
+            </div>
+          `).join('');
+
+          return `
+            <div class="bg-surface-container-low p-5 rounded-2xl border border-surface-variant/40 space-y-4">
+              <!-- Card Header -->
+              <div class="flex items-start justify-between">
+                <div>
+                  <span class="font-mono font-bold text-primary text-sm">${order.orderId}</span>
+                  <p class="text-outline text-[11px] mt-0.5">${order.createdAtFormatted || new Date(order.createdAt).toLocaleString('ar-EG')}</p>
+                </div>
+                <select 
+                  onchange="changeOrderStatus('${order.orderId}', this.value)"
+                  class="bg-surface-container border border-surface-variant/60 rounded-full px-2.5 py-1 text-xs font-bold ${status.text} focus:outline-none"
+                >
+                  <option value="new" ${order.status === 'new' ? 'selected' : ''}>جديد 🟡</option>
+                  <option value="preparing" ${order.status === 'preparing' ? 'selected' : ''}>تحضير 🟠</option>
+                  <option value="shipped" ${order.status === 'shipped' ? 'selected' : ''}>شحن 🔵</option>
+                  <option value="delivered" ${order.status === 'delivered' ? 'selected' : ''}>توصيل 🟢</option>
+                  <option value="cancelled" ${order.status === 'cancelled' ? 'selected' : ''}>ملغي 🔴</option>
+                </select>
+              </div>
+
+              <!-- Customer info -->
+              <div class="p-3 bg-surface-container rounded-xl text-xs space-y-1">
+                <p class="font-bold text-on-surface">${order.customerName || 'عميل'}</p>
+                ${order.phone ? `<p class="text-outline font-mono" dir="ltr">${order.phone}</p>` : ''}
+                ${order.city || order.address ? `<p class="text-outline">${order.city ? order.city + ' - ' : ''}${order.address || ''}</p>` : ''}
+              </div>
+
+              <!-- Items list -->
+              <div class="space-y-1">
+                ${itemsList}
+              </div>
+
+              <!-- Footer Total & Actions -->
+              <div class="pt-3 border-t border-surface-variant/30 flex items-center justify-between">
+                <div>
+                  <span class="text-[11px] text-outline">المجموع: </span>
+                  <span class="font-serif font-bold text-primary text-base">$${(parseFloat(order.total) || 0).toFixed(2)}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <button onclick="viewOrderDetail('${order.orderId}')" class="px-3 py-1.5 rounded-full bg-surface-container text-xs font-semibold text-on-surface hover:text-primary flex items-center gap-1 transition-colors">
+                    <span class="material-symbols-outlined text-[16px]">receipt_long</span>
+                    <span>تفاصيل</span>
+                  </button>
+                  <button onclick="deleteOrderRecord('${order.orderId}')" class="w-8 h-8 rounded-full bg-surface-container text-outline hover:text-error flex items-center justify-center transition-colors">
+                    <span class="material-symbols-outlined text-[16px]">delete</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          `;
+        }).join('');
+      }
+    }
+
+    // Status Filter Handler
+    function setDashboardStatusFilter(status, btn) {
+      currentFilter = status;
+      document.querySelectorAll('.status-tab').forEach(b => {
+        b.classList.remove('bg-primary', 'text-surface-container-lowest', 'font-bold');
+        b.classList.add('bg-surface-container', 'text-on-surface-variant');
+      });
+      if (btn) {
+        btn.classList.add('bg-primary', 'text-surface-container-lowest', 'font-bold');
+        btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+      }
+      renderOrders();
+    }
+
+    // Search Handler
+    function handleDashboardSearch(e) {
+      searchQuery = e.target.value.trim();
+      renderOrders();
+    }
+
+    // Change Order Status
+    function changeOrderStatus(orderId, newStatus) {
+      const order = allOrders.find(o => o.orderId === orderId);
+      if (!order) return;
+
+      order.status = newStatus;
+      saveLocalOrders(allOrders);
+
+      // Update in Firebase if docId exists or search doc
+      if (window.FirebaseService?.updateOrderStatus && order.docId) {
+        window.FirebaseService.updateOrderStatus(order.docId, newStatus);
+      }
+
+      showToast(`تم تحديث حالة الطلب ${orderId} إلى "${STATUS_CONFIG[newStatus]?.label || newStatus}"`);
+      renderOrders();
+    }
+
+    // Delete Order Record
+    function deleteOrderRecord(orderId) {
+      if (!confirm(`هل أنت متأكد من حذف الطلب رقم ${orderId}؟`)) return;
+
+      const order = allOrders.find(o => o.orderId === orderId);
+      allOrders = allOrders.filter(o => o.orderId !== orderId);
+      saveLocalOrders(allOrders);
+
+      if (window.FirebaseService?.deleteOrder && order?.docId) {
+        window.FirebaseService.deleteOrder(order.docId);
+      }
+
+      showToast(`تم حذف الطلب ${orderId}`);
+      renderOrders();
+    }
+
+    // View Order Detail Modal
+    function viewOrderDetail(orderId) {
+      const order = allOrders.find(o => o.orderId === orderId);
+      if (!order) return;
+
+      const modal = document.getElementById('order-detail-modal');
+      const container = document.getElementById('printable-invoice');
+
+      const itemsHtml = (order.items || []).map(i => `
+        <tr class="border-b border-surface-variant/30">
+          <td class="py-2.5 px-3 font-medium text-on-surface">${i.title}</td>
+          <td class="py-2.5 px-3 text-outline">${i.weight || '250g'} - ${i.grind || 'حبوب كاملة'}</td>
+          <td class="py-2.5 px-3 text-center font-bold">${i.quantity}</td>
+          <td class="py-2.5 px-3 text-left font-mono">$${(parseFloat(i.price) || 0).toFixed(2)}</td>
+          <td class="py-2.5 px-3 text-left font-mono font-bold text-primary">$${((parseFloat(i.price) || 0) * (i.quantity || 1)).toFixed(2)}</td>
+        </tr>
+      `).join('');
+
+      container.innerHTML = `
+        <div class="space-y-6">
+          <!-- Invoice Header -->
+          <div class="flex items-center justify-between border-b border-surface-variant/50 pb-4">
+            <div>
+              <h2 class="font-serif font-bold text-xl text-primary">سوق القهوة المختصة • COFFEE MARKET</h2>
+              <p class="text-xs text-outline mt-0.5">فاتورة حجز وشحن محصول فاخر</p>
+            </div>
+            <div class="text-left font-mono">
+              <span class="text-sm font-bold text-on-surface">${order.orderId}</span>
+              <p class="text-xs text-outline">${order.createdAtFormatted || new Date(order.createdAt).toLocaleString('ar-EG')}</p>
+            </div>
+          </div>
+
+          <!-- Customer & Shipping Details -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-surface-container p-4 rounded-2xl">
+            <div>
+              <p class="text-outline text-[11px] uppercase tracking-wider mb-1">بيانات العميل:</p>
+              <p class="font-bold text-on-surface text-sm">${order.customerName || 'عميل'}</p>
+              ${order.phone ? `<p class="text-xs text-outline mt-0.5 font-mono" dir="ltr">${order.phone}</p>` : ''}
+              ${order.email ? `<p class="text-xs text-outline mt-0.5">${order.email}</p>` : ''}
+            </div>
+            <div>
+              <p class="text-outline text-[11px] uppercase tracking-wider mb-1">عنوان التوصيل:</p>
+              <p class="font-bold text-on-surface text-xs">${order.city || 'المدينة'}</p>
+              <p class="text-xs text-outline mt-0.5">${order.address || 'العنوان غير محدد'}</p>
+              ${order.notes ? `<p class="text-xs text-primary mt-1">ملاحظة: ${order.notes}</p>` : ''}
+            </div>
+          </div>
+
+          <!-- Items Table -->
+          <div class="overflow-x-auto">
+            <table class="w-full text-right text-xs">
+              <thead>
+                <tr class="bg-surface-container border-b border-surface-variant/40 text-outline">
+                  <th class="py-2.5 px-3">المحصول</th>
+                  <th class="py-2.5 px-3">الوزن / الطحنة</th>
+                  <th class="py-2.5 px-3 text-center">الكمية</th>
+                  <th class="py-2.5 px-3 text-left">السعر</th>
+                  <th class="py-2.5 px-3 text-left">الإجمالي</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${itemsHtml}
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Financial Summary -->
+          <div class="flex justify-end pt-2">
+            <div class="w-64 space-y-2 text-xs">
+              <div class="flex justify-between text-outline">
+                <span>المجموع الفرعي:</span>
+                <span class="font-mono">$${(parseFloat(order.subtotal) || 0).toFixed(2)}</span>
+              </div>
+              <div class="flex justify-between text-outline">
+                <span>تكلفة الشحن:</span>
+                <span class="font-mono">${order.shipping === 0 ? 'مجاني' : `$${(parseFloat(order.shipping) || 0).toFixed(2)}`}</span>
+              </div>
+              <div class="flex justify-between text-sm font-bold text-on-surface pt-2 border-t border-surface-variant">
+                <span>المبلغ المستحق:</span>
+                <span class="font-mono text-primary text-base">$${(parseFloat(order.total) || 0).toFixed(2)}</span>
+              </div>
+              <div class="flex justify-between text-[11px] text-outline pt-1">
+                <span>طريقة الدفع:</span>
+                <span>${order.paymentMethod || 'الدفع عند الاستلام'}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeOrderDetailModal() {
+      const modal = document.getElementById('order-detail-modal');
+      if (modal) {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Export Orders to CSV
+    function exportOrdersToCSV() {
+      if (allOrders.length === 0) {
+        alert('لا توجد طلبات لتصديرها.');
+        return;
+      }
+
+      let csv = "\uFEFFرقم الطلب,تاريخ الطلب,اسم العميل,الهاتف,المدينة,العنوان,المحاصيل,المجموع,طريقة الدفع,الحالة\n";
+
+      allOrders.forEach(o => {
+        const itemsStr = (o.items || []).map(i => `${i.quantity}x ${i.title}`).join(' | ');
+        const row = [
+          o.orderId,
+          `"${o.createdAtFormatted || o.createdAt}"`,
+          `"${o.customerName || ''}"`,
+          `"${o.phone || ''}"`,
+          `"${o.city || ''}"`,
+          `"${o.address || ''}"`,
+          `"${itemsStr}"`,
+          o.total,
+          `"${o.paymentMethod || ''}"`,
+          `"${STATUS_CONFIG[o.status]?.label || o.status}"`
+        ];
+        csv += row.join(',') + "\n";
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.setAttribute('href', url);
+      link.setAttribute('download', `coffee_orders_${new Date().toISOString().slice(0,10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // Add a Demo Order for immediate testing
+    function addDemoOrder() {
+      const demoClients = [
+        { name: 'محمد عبدالله الشمري', phone: '0501234567', city: 'الرياض', address: 'حي النرجس، شارع أنس بن مالك' },
+        { name: 'سارة خالد الدوسري', phone: '0559876543', city: 'جدة', address: 'حي الروضة، طريق الكورنيش' },
+        { name: 'عبدالرحمن الشهري', phone: '0543210987', city: 'الدمام', address: 'حي الشاطئ الغربي' }
+      ];
+      const randomClient = demoClients[Math.floor(Math.random() * demoClients.length)];
+      const orderNumber = 'ORD-' + Math.floor(100000 + Math.random() * 900000);
+
+      const demoOrder = {
+        orderId: orderNumber,
+        customerName: randomClient.name,
+        phone: randomClient.phone,
+        email: 'customer@example.com',
+        city: randomClient.city,
+        address: randomClient.address,
+        notes: 'يرجى الاتصال قبل التوصيل بنصف ساعة',
+        paymentMethod: 'الدفع عند الاستلام',
+        items: [
+          {
+            id: 'la-esmeralda',
+            title: 'بنما قيشا هاسيندا لا إسميرالدا',
+            weight: '250g',
+            grind: 'حبوب كاملة',
+            price: 54.00,
+            quantity: 1
+          },
+          {
+            id: 'chelbesa-washed',
+            title: 'إثيوبيا شيلبيسا مغسولة عضوية G1',
+            weight: '250g',
+            grind: 'فلتر (V60)',
+            price: 32.50,
+            quantity: 1
+          }
+        ],
+        subtotal: 86.50,
+        shipping: 0.00,
+        total: 86.50,
+        status: 'new',
+        createdAt: new Date().toISOString(),
+        createdAtFormatted: new Intl.DateTimeFormat('ar-EG', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date())
+      };
+
+      allOrders.unshift(demoOrder);
+      saveLocalOrders(allOrders);
+
+      // Play Sound
+      try {
+        const sound = document.getElementById('order-alert-sound');
+        if (sound) sound.play();
+      } catch(e) {}
+
+      showToast(`تم استقبال طلب جديد بنجاح: ${orderNumber}`);
+      renderOrders();
+    }
+
+    // Play chime sound on new order
+    function playOrderChime() {
+      try {
+        const sound = document.getElementById('order-alert-sound');
+        if (sound) sound.play();
+      } catch(e) {}
+    }
+
+    // Toast helper
+    function showToast(msg) {
+      const toast = document.getElementById('toast-notify');
+      const text = document.getElementById('toast-text');
+      if (toast && text) {
+        text.textContent = msg;
+        toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+        toast.classList.add('translate-y-0', 'opacity-100');
+        setTimeout(() => {
+          toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+          toast.classList.remove('translate-y-0', 'opacity-100');
+        }, 3200);
+      }
+    }
+
+    // Initialize Dashboard
+    function initDashboard() {
+      // 1. Initial load from LocalStorage
+      allOrders = loadLocalOrders();
+      renderOrders();
+
+      // 2. Real-time Firebase Subscription
+      const trySubscribeFirebase = () => {
+        if (window.FirebaseService?.subscribeToOrders) {
+          window.FirebaseService.subscribeToOrders((firebaseOrders) => {
+            const previousCount = allOrders.length;
+            allOrders = mergeOrders(firebaseOrders);
+            if (allOrders.length > previousCount) {
+              playOrderChime();
+              showToast('🔔 وصل طلب جديد إلى المتجر!');
+            }
+            renderOrders();
+          });
+        } else {
+          setTimeout(trySubscribeFirebase, 300);
+        }
+      };
+      trySubscribeFirebase();
+
+      // 3. Listen to local custom event across tabs
+      window.addEventListener('coffee_order_placed', (e) => {
+        const newOrder = e.detail;
+        if (newOrder && !allOrders.some(o => o.orderId === newOrder.orderId)) {
+          allOrders.unshift(newOrder);
+          playOrderChime();
+          showToast(`🔔 طلب جديد وارد: ${newOrder.orderId}`);
+          renderOrders();
+        }
+      });
+
+      window.addEventListener('storage', (e) => {
+        if (e.key === ORDERS_STORAGE_KEY) {
+          allOrders = loadLocalOrders();
+          renderOrders();
+        }
+      });
+    }
+
+    // Expose globals
+    window.setDashboardStatusFilter = setDashboardStatusFilter;
+    window.handleDashboardSearch = handleDashboardSearch;
+    window.changeOrderStatus = changeOrderStatus;
+    window.deleteOrderRecord = deleteOrderRecord;
+    window.viewOrderDetail = viewOrderDetail;
+    window.closeOrderDetailModal = closeOrderDetailModal;
+    window.exportOrdersToCSV = exportOrdersToCSV;
+    window.addDemoOrder = addDemoOrder;
+
+    document.addEventListener('DOMContentLoaded', initDashboard);
+  </script>
+
+</body>
+</html>

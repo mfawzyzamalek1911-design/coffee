@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html class="dark" lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>سوق القهوة المختصة — محاصيل فاخرة ومصادر نادرة مباشرة من المزارع</title>
+  <meta name="description" content="سوق القهوة المختصة الفاخرة - محاصيل سنجل أوريجن نادرة ومحامص حرفية بتجارة مباشرة وتحميص طازج."/>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#131313",
+            "surface-dim": "#131313",
+            "surface-bright": "#393939",
+            "surface-container-lowest": "#0e0e0e",
+            "surface-container-low": "#1c1b1b",
+            "surface-container": "#201f1f",
+            "surface-container-high": "#2a2a2a",
+            "surface-container-highest": "#353534",
+            "on-surface": "#e5e2e1",
+            "on-surface-variant": "#d5c3b8",
+            "primary": "#f4bb92",
+            "primary-container": "#8b5e3c",
+            "on-primary-container": "#ffe3d1",
+            "secondary": "#fab983",
+            "secondary-container": "#6b3e13",
+            "on-secondary-container": "#ebab76",
+            "outline": "#9e8e84",
+            "outline-variant": "#51443c",
+            "error": "#ffb4ab",
+            "error-container": "#93000a",
+            "tertiary": "#c8c6c5"
+          },
+          fontFamily: {
+            sans: ["'Cairo'", "system-ui", "sans-serif"],
+            serif: ["'Cairo'", "'Playfair Display'", "Georgia", "serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+
+<body class="bg-surface font-sans text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container">
+
+  <!-- 1. Top Announcement Bar -->
+  <div class="fixed top-0 w-full z-40 bg-surface-container-lowest border-b border-surface-variant/40 py-2 px-4 text-center text-xs tracking-wider flex items-center justify-center gap-3 text-primary">
+    <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+    <span>شحن مجاني سريع للطلبات فوق 65$ • محاصيل مختصة فاخرة ذات مصدر واحد وتجارة مباشرة</span>
+    <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+  </div>
+
+  <!-- 2. Main Navigation Header -->
+  <header class="fixed top-8 w-full z-40 glass-header">
+    <div class="h-20 max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-6">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 shrink-0 group">
+        <div class="w-10 h-10 rounded-full bg-primary-container/20 border border-primary/30 flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+          <span class="material-symbols-outlined text-[24px]">local_cafe</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif text-lg sm:text-xl font-bold tracking-tight text-on-surface group-hover:text-primary transition-colors">
+            سوق القهوة المختصة
+          </span>
+          <span class="text-[10px] uppercase tracking-widest text-secondary font-semibold -mt-0.5">
+            Artisan Roasters Guild
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium">
+        <a href="index.html" class="text-primary font-bold">الرئيسية</a>
+        <a href="shop.html" class="hover:text-primary transition-colors text-on-surface-variant">المحاصيل الفاخرة</a>
+        <a href="product.html" class="hover:text-primary transition-colors text-on-surface-variant">محصول القيشا</a>
+        <a href="index.html#reserve-showcase" class="hover:text-primary transition-colors text-on-surface-variant">الأكثر طلباً</a>
+        <a href="index.html#origin-explorer" class="hover:text-primary transition-colors text-on-surface-variant">خريطة النكهات</a>
+        <a href="index.html#tenets" class="hover:text-primary transition-colors text-on-surface-variant">معايير الجودة</a>
+        
+        <!-- Live Orders Dashboard Link -->
+        <a href="dashboard.html" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary hover:bg-primary hover:text-surface-container-lowest font-bold text-xs transition-colors shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="material-symbols-outlined text-[15px]">dashboard</span>
+          <span>لوحة الطلبات</span>
+        </a>
+      </nav>
+
+      <!-- Right Utility Actions -->
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        
+        <!-- Search Trigger Button -->
+        <button onclick="openSearchModal()" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high border border-surface-variant/40 text-outline hover:text-on-surface transition-all text-xs" title="بحث المحاصيل (⌘K)">
+          <span class="material-symbols-outlined text-[18px]">search</span>
+          <span class="hidden lg:inline">بحث المحاصيل...</span>
+          <kbd class="hidden lg:inline px-1.5 py-0.5 rounded bg-surface-container-highest text-[10px] font-mono text-outline">⌘K</kbd>
+        </button>
+
+        <!-- Wishlist Link -->
+        <a href="shop.html" class="w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-high border border-surface-variant/40 flex items-center justify-center text-outline hover:text-error transition-colors" title="قائمة المفضلة">
+          <span class="material-symbols-outlined text-[20px]">favorite</span>
+        </a>
+
+        <!-- Cart Trigger Button with Dynamic Badge -->
+        <button onclick="openCart()" class="relative w-10 h-10 rounded-full bg-surface-container hover:bg-surface-container-high border border-surface-variant/40 flex items-center justify-center text-on-surface hover:text-primary transition-colors open-cart-trigger" title="سلة المشتريات">
+          <span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+          <span class="cart-badge absolute -top-1 -left-1 min-w-[20px] h-[20px] px-1 rounded-full bg-primary text-surface-container-lowest text-[10px] font-bold flex items-center justify-center shadow-lg" style="display:none;">0</span>
+        </button>
+
+        <!-- Dashboard Shortcut Button -->
+        <a href="dashboard.html" class="hidden sm:flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-surface-container hover:bg-surface-container-high border border-surface-variant/60 text-xs font-bold text-on-surface hover:text-primary transition-colors" title="إدارة واستقبال الطلبات">
+          <span class="material-symbols-outlined text-[16px]">receipt_long</span>
+          <span>الطلبات</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:text-primary transition-colors">
+          <span class="material-symbols-outlined text-[22px]">menu</span>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+
+  <main class="w-full pt-28 bg-surface">
+    <div class="flex flex-col w-full">
+
+      <!-- Toast Notification Alert for Cart/Actions -->
+      <div class="fixed bottom-6 left-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 bg-surface-container-high border border-surface-variant/60 px-5 py-3.5 rounded-full shadow-2xl" id="toast-notify">
+        <span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+        <span class="text-xs font-bold text-on-surface" id="toast-text">تمت إضافة الصنف إلى سلة المشتريات</span>
+      </div>
+
+      <!-- Section 1: Hero Section -->
+      <section class="relative w-full -mt-28 pt-44 pb-28 min-h-[920px] flex items-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center pointer-events-none scale-105 transform motion-safe:animate-[pulse_10s_ease-in-out_infinite]" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBx-VTqf5tx_dQrjPtiTmLbWsMkG6SWgZc_8vg2JYb_EuCMwg6PE5QDyiVkyUDnOKO9mNotL-Uyrj1ivdDMDH2g3vaUXluFZfhKxFYCGIsPkVflzPPas_4584z1O8hgk84wzRzavGiet3dbR8APLVTvC0opEtXXJ00VNjqrLg3Tj6Lc08S9Da58WuEakx7TBK80qYHkIy8pA43zISPewyqmQMaCR3jq1TYhrtrsjlM')"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/85 to-surface-container-lowest/80"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(244,187,146,0.12)_0%,_transparent_70%)]"></div>
+        
+        <div class="relative max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div class="max-w-3xl space-y-6">
+            
+            <!-- Live Badge -->
+            <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-surface-container-high/90 backdrop-blur-md shadow-md">
+              <span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+              <span class="text-xs font-bold text-primary">محاصيل المايكرو-لوت الفاخرة متوفرة الآن</span>
+              <span class="text-outline">/</span>
+              <span class="text-xs text-on-surface-variant">تحميص طازج عند الطلب</span>
+            </div>
+
+            <!-- Luxury Main Heading -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-on-surface tracking-tight leading-[1.25]">
+              اكتشف مذاق القهوة <br/>
+              <span class="text-transparent bg-clip-text bg-gradient-to-l from-primary via-secondary to-primary-container">المختصة الاستثنائية</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="text-base sm:text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+              استكشف حبوب القهوة الفاخرة ذات المصدر الواحد، المحمصة بعناية فائقة لتبرز الإيحاءات الطبيعية الفريدة من مزارع إثيوبيا، بنما، كولومبيا واليمن.
+            </p>
+
+            <!-- Dual Calls-to-Action -->
+            <div class="flex flex-wrap items-center gap-4 pt-4">
+              <a class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-primary text-surface-container-lowest hover:bg-secondary font-bold text-sm tracking-wide shadow-xl group transition-all" href="shop.html">
+                <span>تصفح تشكيلة المحاصيل</span>
+                <span class="material-symbols-outlined text-[18px] group-hover:-translate-x-1 transition-transform">arrow_back</span>
+              </a>
+              <a class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-surface-container/80 hover:bg-surface-container-highest text-on-surface font-bold text-sm shadow-md transition-all border border-surface-variant/40" href="#reserve-showcase">
+                <span>المحاصيل الأكثر طلباً</span>
+                <span class="material-symbols-outlined text-[18px] text-primary">local_fire_department</span>
+              </a>
+              <a class="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-surface-container hover:bg-surface-container-highest text-primary font-bold text-sm shadow-md transition-all border border-primary/30" href="dashboard.html">
+                <span class="material-symbols-outlined text-[18px]">dashboard</span>
+                <span>لوحة التحكم</span>
+              </a>
+            </div>
+
+            <!-- Trust Metrics Strip -->
+            <div class="pt-6">
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl">
+                <div class="flex items-center gap-3 px-4 py-3 rounded-full bg-surface-container-low/80 backdrop-blur-md border border-surface-variant/30 shadow-sm">
+                  <span class="material-symbols-outlined text-primary text-[20px]">verified</span>
+                  <span class="text-xs font-bold text-on-surface">مصدر فردي 100% موثوق</span>
+                </div>
+                <div class="flex items-center gap-3 px-4 py-3 rounded-full bg-surface-container-low/80 backdrop-blur-md border border-surface-variant/30 shadow-sm">
+                  <span class="material-symbols-outlined text-primary text-[20px]">schedule</span>
+                  <span class="text-xs font-bold text-on-surface">تحميص طازج خلال 48 ساعة</span>
+                </div>
+                <div class="flex items-center gap-3 px-4 py-3 rounded-full bg-surface-container-low/80 backdrop-blur-md border border-surface-variant/30 shadow-sm">
+                  <span class="material-symbols-outlined text-primary text-[20px]">handshake</span>
+                  <span class="text-xs font-bold text-on-surface">تجارة مباشرة مع المزارعين</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="absolute -bottom-24 left-10 w-96 h-96 rounded-full bg-primary-container/20 blur-3xl pointer-events-none"></div>
+      </section>
+
+      <!-- Section 2: Featured Categories Grid -->
+      <section class="w-full py-20 bg-surface relative">
+        <div class="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+              <div class="inline-flex items-center gap-2 mb-2">
+                <span class="w-6 h-px bg-primary"></span>
+                <span class="text-xs font-bold uppercase tracking-widest text-primary">تصنيفات المتجر</span>
+              </div>
+              <h2 class="text-2xl sm:text-3xl font-bold text-on-surface">أقسام المحاصيل الفاخرة</h2>
+            </div>
+            <p class="text-sm text-outline max-w-md">من الحبوب الكاملة النادرة إلى الطحن الاحترافي المخصص لأدق أدوات التحضير.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Card 1 -->
+            <a class="group relative h-96 rounded-2xl overflow-hidden bg-surface-container-low shadow-xl flex flex-col justify-end p-8 transition-all duration-500 hover:-translate-y-1 border border-surface-variant/30" href="shop.html">
+              <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCfnpXnwofRb-V8d5srNGF--ZmgDepeZotulUE8Nolm3i6UIYEf4dPTG1QGYsX4wt8tjuNOdn7AFCokZ2iPp03gzSEM4gdDiZkRCY8kXLcT0MW6NUUCt8yjnSyOESU3iMS-Y_Mo2hSVBs8y4ifpTM7KqXv3RRDcXhJtIXSDk7pMoFLTBvoPjpWCf9t7xCurDPbiFjYUiLpmDsQAi2zHBkyPn0LdyxoWSpjebCi8hdA')"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/60 to-transparent"></div>
+              <div class="relative space-y-2">
+                <span class="text-xs font-bold text-primary">حبوب كاملة نقية</span>
+                <h3 class="text-xl font-bold text-on-surface group-hover:text-primary transition-colors">حبوب القهوة المختصة الكاملة</h3>
+                <p class="text-xs text-outline line-clamp-2">حبوب كاملة محفوظة في أكياس صمامات تنفيس لحماية الزيوت العطرية والنكهات الحيوية.</p>
+                <div class="pt-2 flex items-center gap-2 text-xs font-bold text-primary group-hover:-translate-x-1 transition-transform">
+                  <span>تصفح المحاصيل</span>
+                  <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Card 2 -->
+            <a class="group relative h-96 rounded-2xl overflow-hidden bg-surface-container-low shadow-xl flex flex-col justify-end p-8 transition-all duration-500 hover:-translate-y-1 border border-surface-variant/30" href="shop.html">
+              <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAjnUJY0K0p8MnvMr9ZfxhQvprG6EwTMQ9myyn9I5D7zNQ12s0a8RENLpzqFnZbBQa5B8AvNznwPCNUerOx-OuQYDct7Bv8-D99zZYzaGeAwdMg0C_iMup9Y26ZE-41Olr5e5JH4hmQUZ2AZcXRxWOeUuztfhrX-U9wgWI7p2pYu6WtcvpxbdeKUxGfiIhE9vrCxRK0oJ65NdWe7wCsZxL1bhCLvKOgFWJoFGmk2_4')"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/60 to-transparent"></div>
+              <div class="relative space-y-2">
+                <span class="text-xs font-bold text-primary">طحن احترافي دقيق</span>
+                <h3 class="text-xl font-bold text-on-surface group-hover:text-primary transition-colors">بن مطحون احترافي (V60 / فلتر)</h3>
+                <p class="text-xs text-outline line-clamp-2">مطحون بدقة ميكرونية متناسقة على مطاحن تيتانيوم احترافية ومغلف فوراً تحت النيتروجين.</p>
+                <div class="pt-2 flex items-center gap-2 text-xs font-bold text-primary group-hover:-translate-x-1 transition-transform">
+                  <span>اختر درجات الطحن</span>
+                  <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Card 3 -->
+            <a class="group relative h-96 rounded-2xl overflow-hidden bg-surface-container-low shadow-xl flex flex-col justify-end p-8 transition-all duration-500 hover:-translate-y-1 border border-surface-variant/30" href="shop.html">
+              <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB68OfchTKSflKp5Po9x8aenY2WrJSD9hmpWtYCWZO4AmT9ZPgbkPxsMKGyuw4WoZIBxFuHg7PEJJWKXAmHEeb-WPypJxx-vmAOleciF_hGWpY_kDpEPIHjPDNwCvPQ0221RfRN9nZyyFjE7EiexqJjbjS5hD-DjjlFoyehvOc7y7Hjc31Ov-EZv2nD-1Ez7msdorNQ3CaVcKt9se9hbLAnmy1mAKmz0Ilsr9g7hX4')"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/60 to-transparent"></div>
+              <div class="relative space-y-2">
+                <span class="text-xs font-bold text-primary">أصالة وتراث عريق</span>
+                <h3 class="text-xl font-bold text-on-surface group-hover:text-primary transition-colors">القهوة التركية والجذوة التقليدية</h3>
+                <p class="text-xs text-outline line-clamp-2">طحن ناعم جداً على أحجار تقليدية مع خيارات متبلة بالهيل الأخضر النقي أو بدون إضافات.</p>
+                <div class="pt-2 flex items-center gap-2 text-xs font-bold text-primary group-hover:-translate-x-1 transition-transform">
+                  <span>استكشف خلطات التراث</span>
+                  <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Card 4 -->
+            <a class="group relative h-96 rounded-2xl overflow-hidden bg-surface-container-low shadow-xl flex flex-col justify-end p-8 transition-all duration-500 hover:-translate-y-1 border border-surface-variant/30" href="shop.html">
+              <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCadF7AnkmmehofNShYr5zHjRmk1WSZk66gFRu3Nq5vJ8bNaw5TNyRa1XMSN8BVWpd9cE0gM-nCLzUSySQFVUAD3TXbFziy5D8-75v9dqa0FDqQb71Vo5iedxVXYoaBaOjHscOsEwtp_wc25LNDGMRZYdvnbcR5XHudhnbdG1J5ypyNdZ4qWd8bcrYfxc1yqWzpYUdUkILAtHStu1Nf5uOh0EKaaZnWVX0HoBTudcc')"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/60 to-transparent"></div>
+              <div class="relative space-y-2">
+                <span class="text-xs font-bold text-primary">استخلاص غني بكريمة كثيفة</span>
+                <h3 class="text-xl font-bold text-on-surface group-hover:text-primary transition-colors">تحميصات الإسبريسو المختصة</h3>
+                <p class="text-xs text-outline line-clamp-2">قوام حريري متزن، إيحاءات شوكولاتة وكراميل، مثالية لمشروبات الحليب والسينجل شوت.</p>
+                <div class="pt-2 flex items-center gap-2 text-xs font-bold text-primary group-hover:-translate-x-1 transition-transform">
+                  <span>تصفح الإسبريسو</span>
+                  <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Card 5 -->
+            <a class="group relative h-96 rounded-2xl overflow-hidden bg-surface-container-low shadow-xl flex flex-col justify-end p-8 transition-all duration-500 hover:-translate-y-1 border border-surface-variant/30" href="product.html">
+              <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB_qSuxffOLcQYglmlDSbphn5gfBdL4MnXLF89cUrHnrwIpa2tFBrd_l5wtjuJTrq7UgFWbt0WRZM3bXktl6FeFYrd2LN9oOj_29oNh41Q8talh8mFH5C-JCcbB_K6qip1esU5x27hDqcbeAcYKFDl51UPbGZAtXoeqwLwrWK20aWlzGWW_11LMKTH6MhkInwjkv1VgFgnRFcovisobrIRUd1l8N5u6ssjnvLUeAhw')"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/60 to-transparent"></div>
+              <div class="relative space-y-2">
+                <span class="text-xs font-bold text-secondary">قمة محاصيل التذوق العالمية</span>
+                <h3 class="text-xl font-bold text-on-surface group-hover:text-primary transition-colors">سلالة القيشا النادرة (Geisha)</h3>
+                <p class="text-xs text-outline line-clamp-2">محاصيل محدودة للغاية من بركان بارو في بنما بتقييم يفوق 92 نقطة SCA وإيحاءات زهرية مبهرة.</p>
+                <div class="pt-2 flex items-center gap-2 text-xs font-bold text-primary group-hover:-translate-x-1 transition-transform">
+                  <span>اكتشف محصول القيشا</span>
+                  <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Card 6 -->
+            <a class="group relative h-96 rounded-2xl overflow-hidden bg-surface-container-low shadow-xl flex flex-col justify-end p-8 transition-all duration-500 hover:-translate-y-1 border border-surface-variant/30" href="shop.html">
+              <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDkOqvzYLSxCqvhgl7kUELF9PXSbzIVG8jfqhmYKm030oY6zrSJ_09IfQpad1awElJqYpp72v9lWj5P2gKft4da4IPWmoN8TGMAcslrdlKewoEu2q-CC2EX6adntSk3rCRuKECjy1KtYgEIlcAxiTnHOO_RhtMeQ_gcl27yCCSqZcR88dYR5EtRHVCrnDeG5JMcETLsCYweE_qiFJxynRsXeHfuFvsCZEsjFZJT-Yg')"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/60 to-transparent"></div>
+              <div class="relative space-y-2">
+                <span class="text-xs font-bold text-primary">أدوات تحضير احترافية</span>
+                <h3 class="text-xl font-bold text-on-surface group-hover:text-primary transition-colors">أدوات الباريستا والتقطير اليدوي</h3>
+                <p class="text-xs text-outline line-clamp-2">أباريق ترشيح متزنة، موازين دقيقة، فلاتر ومطاحن يدوية تمنحك استخلاصاً مثالياً في كل كوب.</p>
+                <div class="pt-2 flex items-center gap-2 text-xs font-bold text-primary group-hover:-translate-x-1 transition-transform">
+                  <span>تجهيز ركن القهوة</span>
+                  <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+                </div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Best Sellers Showcase -->
+      <section class="w-full py-20 bg-surface-container-lowest relative" id="reserve-showcase">
+        <div class="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            <div>
+              <div class="inline-flex items-center gap-2 mb-2">
+                <span class="w-6 h-px bg-primary"></span>
+                <span class="text-xs font-bold uppercase tracking-widest text-primary">مختارات الخبراء</span>
+              </div>
+              <h2 class="text-2xl sm:text-3xl font-bold text-on-surface">المحاصيل الأكثر طلباً</h2>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="flex items-center gap-2 overflow-x-auto pb-2 lg:pb-0" id="filter-container">
+              <button class="filter-btn active-filter px-5 py-2 rounded-full bg-primary text-surface-container-lowest font-bold text-xs transition-all" data-filter="all">جميع المحاصيل</button>
+              <button class="filter-btn px-5 py-2 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface font-semibold text-xs transition-all" data-filter="ethiopia">إثيوبيا</button>
+              <button class="filter-btn px-5 py-2 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface font-semibold text-xs transition-all" data-filter="panama">بنما</button>
+              <button class="filter-btn px-5 py-2 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface font-semibold text-xs transition-all" data-filter="colombia">كولومبيا</button>
+              <button class="filter-btn px-5 py-2 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface font-semibold text-xs transition-all" data-filter="yemen">اليمن</button>
+            </div>
+          </div>
+
+          <!-- Product Cards Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6" id="products-grid">
+            
+            <!-- Product 1 -->
+            <div class="product-card group bg-surface-container rounded-2xl overflow-hidden flex flex-col shadow-lg transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl border border-surface-variant/40" data-origin="ethiopia">
+              <div class="relative h-72 bg-surface-container-high overflow-hidden">
+                <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLxdqbpb8FlMyMom-2g1-xd5p40i4zf2O7O96H0A3O8OuM9a399uXQXpTMR0euH7ALgW-cEBkp_F4JPGcgy_5PKLkLzTuqWZJvYvzASrFZ9odFtcourOzwwhY8Ps3hXPBb_3BT3Qu_YLNsNJJHqAI9Lqu8mfoRW_WmtNUHhJ8ndZzVeiFrw3DmtYDTOr-vsm8q35Msu8fiwgaWHYEJlKmkfp_02fVqWYXh2jam26Q" alt="إثيوبيا يرغاتشيف"/>
+                <div class="absolute top-4 right-4 flex flex-col gap-2">
+                  <span class="px-3 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-primary text-[11px] font-bold">يرغاتشيف بنكو G1</span>
+                  <span class="px-3 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-on-surface-variant text-[11px]">تحميص خفيف فلتر</span>
+                </div>
+                <div class="absolute bottom-4 right-4">
+                  <span class="px-3 py-1 rounded-full bg-secondary-container/90 text-on-secondary-container text-xs font-bold flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[14px]">star</span> SCA 92.4
+                  </span>
+                </div>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                <div>
+                  <div class="flex items-baseline justify-between mb-1">
+                    <h3 class="text-base font-bold text-on-surface">إثيوبيا يرغاتشيف بنكو G1</h3>
+                    <span class="text-primary font-bold text-lg">$24.00</span>
+                  </div>
+                  <p class="text-xs text-outline leading-relaxed">مرتفعات 2,150م. معالجة مغسولة إرثية مع حمضية فاكهية وانتعاش ياسمين مذهل.</p>
+                  <div class="flex flex-wrap gap-1.5 mt-3">
+                    <span class="px-2.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-[11px]">ياسمين</span>
+                    <span class="px-2.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-[11px]">برغموت</span>
+                    <span class="px-2.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-[11px]">خوخ أبيض</span>
+                  </div>
+                </div>
+                <button onclick="addToCart({id: 'chelbesa-washed', title: 'إثيوبيا يرغاتشيف بنكو G1', price: 24.00, weight: '250g', grind: 'حبوب كاملة', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDLxdqbpb8FlMyMom-2g1-xd5p40i4zf2O7O96H0A3O8OuM9a399uXQXpTMR0euH7ALgW-cEBkp_F4JPGcgy_5PKLkLzTuqWZJvYvzASrFZ9odFtcourOzwwhY8Ps3hXPBb_3BT3Qu_YLNsNJJHqAI9Lqu8mfoRW_WmtNUHhJ8ndZzVeiFrw3DmtYDTOr-vsm8q35Msu8fiwgaWHYEJlKmkfp_02fVqWYXh2jam26Q'})" class="w-full py-3 rounded-full bg-surface-container-high hover:bg-primary hover:text-surface-container-lowest text-on-surface transition-all text-xs font-bold flex items-center justify-center gap-2">
+                  <span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+                  <span>حجز المحصول</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card group bg-surface-container rounded-2xl overflow-hidden flex flex-col shadow-lg transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl border border-surface-variant/40" data-origin="panama">
+              <div class="relative h-72 bg-surface-container-high overflow-hidden">
+                <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLJkqbg8COs8aMCNgv1_-ZJECGfrAcRzNRxvUGrU8LKGOCd6xnttn62S4WTM1RgFRdTHGKJpjUCekzcl1QSlPnWGVoF-z5rlgDNxzvw3xdr_lb67vHK0a4HzLWiwUWGxQQF1GIeATsTTYAv2b8Ox3UWTP1n6my7MPgoia4NJKC-3RYdNdJiwnPBe4f5Seo7KaAONI1D2ljyP_MwGny6o9cAj7zgxgs0FWLuw16jbo" alt="بنما قيشا"/>
+                <div class="absolute top-4 right-4 flex flex-col gap-2">
+                  <span class="px-3 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-primary text-[11px] font-bold">مزرعة جشا لوت 71</span>
+                  <span class="px-3 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-on-surface-variant text-[11px]">معالجة تجفيف بطيء</span>
+                </div>
+                <div class="absolute bottom-4 right-4">
+                  <span class="px-3 py-1 rounded-full bg-secondary-container/90 text-on-secondary-container text-xs font-bold flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[14px]">star</span> SCA 94.8
+                  </span>
+                </div>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                <div>
+                  <div class="flex items-baseline justify-between mb-1">
+                    <h3 class="text-base font-bold text-on-surface">بنما قيشا لوت 71 فاخر</h3>
+                    <span class="text-primary font-bold text-lg">$48.00</span>
+                  </div>
+                  <p class="text-xs text-outline leading-relaxed">منحدرات بركان بوكيتي الشاهقة. تجفيف بطيء لاهوائي يبرز عبق أزهار استثنائي.</p>
+                  <div class="flex flex-wrap gap-1.5 mt-3">
+                    <span class="px-2.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-[11px]">عسل بري</span>
+                    <span class="px-2.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-[11px]">ليمون غراس</span>
+                    <span class="px-2.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-[11px]">أوركيد</span>
+                  </div>
+                </div>
+                <button onclick="addToCart({id: 'la-esmeralda', title: 'بنما قيشا لوت 71 فاخر', price: 48.00, weight: '250g', grind: 'حبوب كاملة', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDLJkqbg8COs8aMCNgv1_-ZJECGfrAcRzNRxvUGrU8LKGOCd6xnttn62S4WTM1RgFRdTHGKJpjUCekzcl1QSlPnWGVoF-z5rlgDNxzvw3xdr_lb67vHK0a4HzLWiwUWGxQQF1GIeATsTTYAv2b8Ox3UWTP1n6my7MPgoia4NJKC-3RYdNdJiwnPBe4f5Seo7KaAONI1D2ljyP_MwGny6o9cAj7zgxgs0FWLuw16jbo'})" class="w-full py-3 rounded-full bg-surface-container-high hover:bg-primary hover:text-surface-container-lowest text-on-surface transition-all text-xs font-bold flex items-center justify-center gap-2">
+                  <span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+                  <span>حجز المحصول</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card group bg-surface-container rounded-2xl overflow-hidden flex flex-col shadow-lg transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl border border-surface-variant/40" data-origin="colombia">
+              <div class="relative h-72 bg-surface-container-high overflow-hidden">
+                <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA92Hd1aHllaE7cH835mJqXsu8QSKEy1vSs0eqRR-1fxdbofuTlWaTy5DSlMlFl0eUnpMrodzDTt9HXKUxkXldO5b_nd4aauSnJdGc1q_JO0J_tq0HjXHJEwB7ThMHT5mpYo82vRsFuSQp-go7ymmwGxkgpwWBa4T0m22G4scm2bLXgxX-A_5FDxE37MRl9_mYAP2fI9BnXIIe7t_7YyyUjjB8XWrauaEZ7bCYjb0w" alt="كولومبيا بينك بوربون"/>
+                <div class="absolute top-4 right-4 flex flex-col gap-2">
+                  <span class="px-3 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-primary text-[11px] font-bold">هويلا سان أغوستين</span>
+                  <span class="px-3 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-on-surface-variant text-[11px]">تحميص متوسط</span>
+                </div>
+                <div class="absolute bottom-4 right-4">
+                  <span class="px-3 py-1 rounded-full bg-secondary-container/90 text-on-secondary-container text-xs font-bold flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[14px]">star</span> SCA 91.5
+                  </span>
+                </div>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                <div>
+                  <div class="flex items-baseline justify-between mb-1">
+                    <h3 class="text-base font-bold text-on-surface">كولومبيا بينك بوربون هويلا</h3>
+                    <span class="text-primary font-bold text-lg">$32.00</span>
+                  </div>
+                  <p class="text-xs text-outline leading-relaxed">تخمير مزارع خاص 72 ساعة. قوام غني حريري مع نغمات شوكولاتة وتوت أحمر.</p>
+                  <div class="flex flex-wrap gap-1.5 mt-3">
+                    <span class="px-2.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-[11px]">كاكاو داكن</span>
+                    <span class="px-2.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-[11px]">كرز أحمر</span>
+                    <span class="px-2.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-[11px]">سكر قصب</span>
+                  </div>
+                </div>
+                <button onclick="addToCart({id: 'pink-bourbon', title: 'كولومبيا بينك بوربون هويلا', price: 32.00, weight: '250g', grind: 'حبوب كاملة', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA92Hd1aHllaE7cH835mJqXsu8QSKEy1vSs0eqRR-1fxdbofuTlWaTy5DSlMlFl0eUnpMrodzDTt9HXKUxkXldO5b_nd4aauSnJdGc1q_JO0J_tq0HjXHJEwB7ThMHT5mpYo82vRsFuSQp-go7ymmwGxkgpwWBa4T0m22G4scm2bLXgxX-A_5FDxE37MRl9_mYAP2fI9BnXIIe7t_7YyyUjjB8XWrauaEZ7bCYjb0w'})" class="w-full py-3 rounded-full bg-surface-container-high hover:bg-primary hover:text-surface-container-lowest text-on-surface transition-all text-xs font-bold flex items-center justify-center gap-2">
+                  <span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+                  <span>حجز المحصول</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card group bg-surface-container rounded-2xl overflow-hidden flex flex-col shadow-lg transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl border border-surface-variant/40" data-origin="yemen">
+              <div class="relative h-72 bg-surface-container-high overflow-hidden">
+                <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf8ACt2FG2TzOGdoFKPSfevhTJvr70NBGO17osDQLaxfB3oknfK0VedwoNjrUxvTszqXZQ5Adhf5wjeJ_WQC1Df2tEmAu07VtfDQTeG8kwZ3QOol9hmJnMZ-U1cBtFCASzONjW7T7Z3RBoraOQbIUTgnsGOBXnhmgMvD-U1fSMR9bbovDZQr11L1v9ztKu2HRiEKckghgd5IDI-YdHZWia6pGSkOySs6QrAnK-nxk" alt="اليمن حراز"/>
+                <div class="absolute top-4 right-4 flex flex-col gap-2">
+                  <span class="px-3 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-primary text-[11px] font-bold">مدرجات حراز الأثرية</span>
+                  <span class="px-3 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-on-surface-variant text-[11px]">تحميص متوسط</span>
+                </div>
+                <div class="absolute bottom-4 right-4">
+                  <span class="px-3 py-1 rounded-full bg-secondary-container/90 text-on-secondary-container text-xs font-bold flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[14px]">star</span> SCA 93.1
+                  </span>
+                </div>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                <div>
+                  <div class="flex items-baseline justify-between mb-1">
+                    <h3 class="text-base font-bold text-on-surface">اليمن حراز بي بيري أصيل</h3>
+                    <span class="text-primary font-bold text-lg">$38.00</span>
+                  </div>
+                  <p class="text-xs text-outline leading-relaxed">مدرجات صخرية عتيقة بارتفاع 2,400م. إيحاءات بهارات شرقية وتين مجفف عميق.</p>
+                  <div class="flex flex-wrap gap-1.5 mt-3">
+                    <span class="px-2.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-[11px]">تين مجفف</span>
+                    <span class="px-2.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-[11px]">هيل أخضر</span>
+                    <span class="px-2.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-[11px]">كاكاو</span>
+                  </div>
+                </div>
+                <button onclick="addToCart({id: 'udaini-yemen', title: 'اليمن حراز بي بيري أصيل', price: 38.00, weight: '250g', grind: 'حبوب كاملة', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCf8ACt2FG2TzOGdoFKPSfevhTJvr70NBGO17osDQLaxfB3oknfK0VedwoNjrUxvTszqXZQ5Adhf5wjeJ_WQC1Df2tEmAu07VtfDQTeG8kwZ3QOol9hmJnMZ-U1cBtFCASzONjW7T7Z3RBoraOQbIUTgnsGOBXnhmgMvD-U1fSMR9bbovDZQr11L1v9ztKu2HRiEKckghgd5IDI-YdHZWia6pGSkOySs6QrAnK-nxk'})" class="w-full py-3 rounded-full bg-surface-container-high hover:bg-primary hover:text-surface-container-lowest text-on-surface transition-all text-xs font-bold flex items-center justify-center gap-2">
+                  <span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+                  <span>حجز المحصول</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Interactive Origin & Sensory Flavor Explorer -->
+      <section class="w-full py-20 bg-surface relative overflow-hidden" id="origin-explorer">
+        <div class="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+              <div class="inline-flex items-center gap-2 mb-2">
+                <span class="w-6 h-px bg-primary"></span>
+                <span class="text-xs font-bold uppercase tracking-widest text-primary">جغرافيا النكهات</span>
+              </div>
+              <h2 class="text-2xl sm:text-3xl font-bold text-on-surface">خريطة الإيحاءات والتضاريس</h2>
+            </div>
+            <p class="text-sm text-outline max-w-md">تعرّف على كيفية تأثير التربة البركانية والارتفاع الشاهق والمعالجات اللاهوائية على نكهات الكوب.</p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <div class="lg:col-span-7 bg-surface-container rounded-2xl p-6 sm:p-8 shadow-xl space-y-6 border border-surface-variant/40">
+              <div class="flex flex-wrap items-center justify-between gap-4">
+                <div class="flex items-center gap-2" id="origin-selector-tabs">
+                  <button class="terroir-tab active px-4 py-2 rounded-full bg-primary text-surface-container-lowest text-xs font-bold transition-colors" data-terroir="ethiopia">مرتفعات إثيوبيا</button>
+                  <button class="terroir-tab px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface text-xs font-medium transition-colors" data-terroir="colombia">أنديز كولومبيا</button>
+                  <button class="terroir-tab px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface text-xs font-medium transition-colors" data-terroir="yemen">حراز اليمن</button>
+                </div>
+                <span class="text-xs text-primary font-bold flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                  رادار النكهات المباشر
+                </span>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center pt-2">
+                <div class="space-y-4">
+                  <div id="terroir-details">
+                    <span class="text-xs text-secondary font-semibold">الارتفاع: 2,100م – 2,350م</span>
+                    <h3 class="text-xl font-bold text-on-surface mt-1" id="terroir-title">مرتفعات يرغاتشيف وسيدامو</h3>
+                    <p class="text-xs text-outline mt-2 leading-relaxed" id="terroir-desc">موطن سلالات القهوة البرية الإرثية. مناخ ضبابي وتربة بركانية تمنح عبير ياسمين ساحر وحمضية ليمونية منعشة كالشاي الفاخر.</p>
+                  </div>
+
+                  <div class="space-y-3 pt-2 text-xs">
+                    <div>
+                      <div class="flex justify-between text-on-surface mb-1"><span>العبير الزهري والياسمين</span><span class="text-primary font-bold" id="stat-floral">96%</span></div>
+                      <div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+                        <div class="h-full bg-primary transition-all duration-700" id="bar-floral" style="width: 96%"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="flex justify-between text-on-surface mb-1"><span>الحمضية الفاكهية اللطيفة</span><span class="text-primary font-bold" id="stat-acidity">92%</span></div>
+                      <div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+                        <div class="h-full bg-primary transition-all duration-700" id="bar-acidity" style="width: 92%"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="flex justify-between text-on-surface mb-1"><span>كثافة وقوام الكوب</span><span class="text-primary font-bold" id="stat-body">68%</span></div>
+                      <div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+                        <div class="h-full bg-primary transition-all duration-700" id="bar-body" style="width: 68%"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex flex-col items-center justify-center p-4 bg-surface-container-high rounded-xl">
+                  <svg class="w-52 h-52 text-primary" fill="none" viewbox="0 0 200 200">
+                    <polygon fill="none" points="100,20 176,75 147,165 53,165 24,75" stroke="currentColor" stroke-opacity="0.15" stroke-width="1.5"></polygon>
+                    <polygon fill="none" points="100,50 145,83 128,137 72,137 55,83" stroke="currentColor" stroke-opacity="0.25" stroke-width="1"></polygon>
+                    <polygon class="transition-all duration-700" fill="currentColor" fill-opacity="0.25" id="radar-polygon" points="100,25 168,78 135,148 65,152 35,76" stroke="currentColor" stroke-width="2.5"></polygon>
+                  </svg>
+                  <div class="flex items-center justify-between w-full text-[11px] text-outline mt-2 px-2">
+                    <span>زهري</span>
+                    <span>حلاوة</span>
+                    <span>قوام</span>
+                    <span>حمضية</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 space-y-6">
+              <div class="w-full h-72 rounded-2xl bg-cover bg-center shadow-xl relative overflow-hidden border border-surface-variant/40" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB8o9vwrOjQmgo_4WBcmIHLjlDUNISIwSFFKm-s-uJ-tSjEeSYYbZLcpq592-5xPaeEWWrA5wO3jaDzuJchOku7jVs7rDWvqiUP1UCDLC99Xte1AX1p6XorCxQuOvvJqs7J95gvWCZIVtW41lfCkm2m4WftJVRNAOdUrtkX523Gf1cxnkbeibRrMubL0I6ema9tf2yTLQScfh1pMYxi3W928wqB5RYhtyfNH-gUZuk')">
+                <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/40 to-transparent"></div>
+                <div class="absolute top-4 right-4">
+                  <span class="px-3 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-primary text-xs font-semibold flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-[14px]">pin_drop</span> محطة معالجة يرغاتشيف
+                  </span>
+                </div>
+                <div class="absolute bottom-4 right-4 left-4">
+                  <h4 class="text-base font-bold text-on-surface">مزارع الظل الطبيعي العالية</h4>
+                  <p class="text-xs text-outline">نضج بطيء تحت الغطاء النباتي الطبيعي يركز السكريات والروائح العطرية.</p>
+                </div>
+              </div>
+
+              <div class="p-6 bg-surface-container rounded-2xl shadow-lg flex items-center justify-between border border-surface-variant/40">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                    <span class="material-symbols-outlined text-[24px]">calendar_month</span>
+                  </div>
+                  <div>
+                    <span class="text-[11px] font-bold uppercase text-primary">موسم الحصاد الحالي</span>
+                    <h5 class="text-sm font-bold text-on-surface">محاصيل حصاد العام الجاري المباشرة</h5>
+                  </div>
+                </div>
+                <a class="px-4 py-2 rounded-full bg-surface-container-high hover:bg-primary hover:text-surface-container-lowest text-xs font-bold transition-colors" href="shop.html">
+                  تصفح المحاصيل
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: The Three Tenets / Quality Standards -->
+      <section class="w-full py-20 bg-surface-container-lowest relative" id="tenets">
+        <div class="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div class="text-center max-w-2xl mx-auto space-y-3">
+            <span class="text-xs font-bold uppercase tracking-widest text-primary">معايير التميز</span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-on-surface">الركائز الثلاث لجودة قهوتنا المختصة</h2>
+            <p class="text-xs sm:text-sm text-outline">نهتم بأدق التفاصيل من شتلة المزرعة حتى قطرة الاستخلاص في فنجانك.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <div class="bg-surface-container p-8 rounded-2xl shadow-lg space-y-4 border border-surface-variant/30 hover:-translate-y-1 transition-transform">
+              <div class="w-14 h-14 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined text-[28px]">handshake</span>
+              </div>
+              <span class="text-xs font-bold uppercase tracking-wider text-secondary">بدون وسطاء</span>
+              <h3 class="text-lg font-bold text-on-surface">بروتوكول التجارة المباشرة</h3>
+              <p class="text-xs text-on-surface-variant leading-relaxed">
+                نشتري المحاصيل بأسعار تفوق الحد الأدنى للتجارة العادلة بنسبة 300% إلى 500% مباشرة من العائلات المنتجة ومحطات المعالجة المستقلة لدعم استدامة زراعة القهوة.
+              </p>
+            </div>
+
+            <div class="bg-surface-container p-8 rounded-2xl shadow-lg space-y-4 border border-surface-variant/30 hover:-translate-y-1 transition-transform">
+              <div class="w-14 h-14 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined text-[28px]">local_fire_department</span>
+              </div>
+              <span class="text-xs font-bold uppercase tracking-wider text-secondary">حفظ النضارة العطرية</span>
+              <h3 class="text-lg font-bold text-on-surface">تغليف عازل بالنيتروجين</h3>
+              <p class="text-xs text-on-surface-variant leading-relaxed">
+                ترتاح حبوب القهوة في غرف محكمة التنفيس ثم تُعبأ في أكياس مزودة بصمام أحادي الاتجاه مع تدفق النيتروجين الآمن لوقف الأكسدة تماماً حتى فتح الكيس.
+              </p>
+            </div>
+
+            <div class="bg-surface-container p-8 rounded-2xl shadow-lg space-y-4 border border-surface-variant/30 hover:-translate-y-1 transition-transform">
+              <div class="w-14 h-14 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined text-[28px]">award_star</span>
+              </div>
+              <span class="text-xs font-bold uppercase tracking-wider text-secondary">تقييم معتمد عالمياً</span>
+              <h3 class="text-lg font-bold text-on-surface">معايير مقيمي الجودة Q-Grader</h3>
+              <p class="text-xs text-on-surface-variant leading-relaxed">
+                يتم فحص وتذوق كل دفعة تحميص من قبل خبراء معتمدين دولياً. أي محصول يسجل أقل من 90 نقطة على مقياس جمعية القهوة المختصة SCA لا يتم إدراجه في المتجر.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 6: Real Store Commitments & Customer Guarantees (Clean, authentic, NO fake persona reviews) -->
+      <section class="w-full py-20 bg-surface relative">
+        <div class="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div class="text-center max-w-2xl mx-auto space-y-3">
+            <span class="text-xs font-bold uppercase tracking-widest text-primary">ضمان التذوق الذهبي</span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-on-surface">التزامنا تجاه تجربة قهوتك اليومية</h2>
+            <p class="text-xs sm:text-sm text-outline">نضمن لك تجربة تذوق نقية تليق بذائقتك في كل حبة قهوة تطلبها من متجرنا.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div class="bg-surface-container-low p-8 rounded-2xl border border-surface-variant/40 space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+                <span class="material-symbols-outlined text-[24px]">verified</span>
+              </div>
+              <h3 class="text-base font-bold text-on-surface">ضمان تاريخ التحميص الفعلي</h3>
+              <p class="text-xs text-outline leading-relaxed">
+                لا نرسل أي كيس قهوة محمص منذ أكثر من 48 ساعة. يصلك المحصول في قمة دورة خروج الغازات العطرية جاهزاً للتقطير المثالي.
+              </p>
+            </div>
+
+            <div class="bg-surface-container-low p-8 rounded-2xl border border-surface-variant/40 space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined text-[24px]">local_shipping</span>
+              </div>
+              <h3 class="text-base font-bold text-on-surface">شحن مبرد وتوصيل سريع</h3>
+              <p class="text-xs text-outline leading-relaxed">
+                شحن مبرد يحمي حبوب القهوة من درجات الحرارة والرطوبة أثناء النقل، لتصلك النكهات طازجة كما خرجت من المحمصة.
+              </p>
+            </div>
+
+            <div class="bg-surface-container-low p-8 rounded-2xl border border-surface-variant/40 space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+                <span class="material-symbols-outlined text-[24px]">published_with_changes</span>
+              </div>
+              <h3 class="text-base font-bold text-on-surface">ضمان الرضا والاستبدال</h3>
+              <p class="text-xs text-outline leading-relaxed">
+                إذا لم يحظَ المحصول بإعجاب ذائقتك أو كان هناك أي اختلاف في الجودة، نوفر لك استبدالاً فورياً بدون أي تعقيد.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section 7: VIP Club & Newsletter -->
+      <section class="w-full py-16 bg-surface-container-lowest relative overflow-hidden">
+        <div class="relative max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="bg-surface-container rounded-3xl p-8 lg:p-14 shadow-2xl relative overflow-hidden border border-surface-variant/40">
+            <div class="max-w-2xl space-y-5 relative">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/15 text-primary">
+                <span class="material-symbols-outlined text-[16px]">stars</span>
+                <span class="text-xs font-bold">نادي متذوقي القهوة الفاخرة</span>
+              </div>
+              <h2 class="text-2xl sm:text-3xl font-bold text-on-surface leading-snug">
+                احصل على إشعار مبكر بوصول <br/>
+                <span class="text-primary">محاصيل المايكرو-لوت النادرة</span>
+              </h2>
+              <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                انضم لنشرتنا البريدية لتصلك إشعارات حصرية عند وصول شحنات القيشا والمحاصيل المحدودة قبل طرحها في المتجر.
+              </p>
+              
+              <form class="space-y-3 pt-2" onsubmit="event.preventDefault(); showToast('تم اشتراكك بنجاح في نشرة المحاصيل الفاخرة'); this.reset();">
+                <div class="flex flex-col sm:flex-row items-center gap-3">
+                  <input class="w-full px-5 py-3.5 rounded-full bg-surface-container-low text-on-surface text-xs placeholder:text-outline border border-surface-variant focus:outline-none focus:border-primary shadow-inner" placeholder="أدخل بريدك الإلكتروني..." required type="email" dir="ltr"/>
+                  <button class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-primary text-surface-container-lowest hover:bg-secondary font-bold text-xs tracking-wider shrink-0 transition-colors shadow-lg" type="submit">
+                    اشتراك فوري
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+
+  <!-- Global Footer -->
+  <footer class="w-full bg-surface-container-lowest text-on-surface-variant pt-16 pb-12 border-t border-surface-variant/30">
+    <div class="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center text-primary">
+              <span class="material-symbols-outlined text-[20px]">local_cafe</span>
+            </div>
+            <span class="font-serif text-lg font-bold text-on-surface">سوق القهوة المختصة</span>
+          </div>
+          <p class="text-xs text-outline leading-relaxed">
+            محاصيل بن مختص ذات مصدر فردي وتجارة مباشرة، تحمص طازجة عند الطلب وتُشحن بعناية للحفاظ على نقاء الكوب.
+          </p>
+          <div class="flex items-center gap-2 pt-1 text-outline">
+            <span class="px-2.5 py-1 rounded bg-surface-container text-[11px] font-mono">معايير SCA 90+</span>
+            <span class="px-2.5 py-1 rounded bg-surface-container text-[11px] font-mono">100% موثوق المصدر</span>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="text-sm font-bold text-on-surface">المتجر والمحاصيل</h4>
+          <ul class="space-y-2 text-xs text-outline">
+            <li><a href="shop.html" class="hover:text-primary transition-colors">بنما قيشا الفاخرة</a></li>
+            <li><a href="shop.html" class="hover:text-primary transition-colors">إثيوبيا سلالات إرثية</a></li>
+            <li><a href="shop.html" class="hover:text-primary transition-colors">كولومبيا بينك بوربون</a></li>
+            <li><a href="shop.html" class="hover:text-primary transition-colors">اليمن حراز العريق</a></li>
+            <li><a href="shop.html" class="hover:text-primary transition-colors">خلطات الإسبريسو المختصة</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="text-sm font-bold text-on-surface">معلومات المتجر</h4>
+          <ul class="space-y-2 text-xs text-outline">
+            <li><a href="index.html#tenets" class="hover:text-primary transition-colors">معايير التجارة المباشرة</a></li>
+            <li><a href="product.html" class="hover:text-primary transition-colors">دليل تحضير القهوة</a></li>
+            <li><a href="index.html#origin-explorer" class="hover:text-primary transition-colors">خريطة النكهات</a></li>
+            <li><a href="dashboard.html" class="hover:text-primary transition-colors font-bold text-primary">لوحة استقبال الطلبات 📊</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="text-sm font-bold text-on-surface">لوحة إدارة المتجر</h4>
+          <p class="text-xs text-outline leading-relaxed">يمكنك متابعة واستقبال وتحديث طلبات العملاء في الوقت الفعلي عبر لوحة التحكم المخصصة.</p>
+          <div class="pt-2">
+            <a href="dashboard.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-surface-container-lowest font-bold text-xs hover:bg-secondary transition-colors shadow-md">
+              <span class="material-symbols-outlined text-[16px]">dashboard</span>
+              <span>فتح لوحة الطلبات</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-surface-variant/20 flex flex-col sm:flex-row items-center justify-between text-xs text-outline gap-4">
+        <p>© 2026 سوق القهوة المختصة • جميع الحقوق محفوظة.</p>
+        <div class="flex items-center gap-6">
+          <a href="dashboard.html" class="hover:text-primary transition-colors">لوحة التحكم</a>
+          <a href="shop.html" class="hover:text-primary transition-colors">المتجر</a>
+          <a href="product.html" class="hover:text-primary transition-colors">محصول القيشا</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ==================== MODALS & DRAWERS ==================== -->
+
+  <!-- 1. Slide-out Cart Drawer -->
+  <div id="cart-drawer-backdrop" onclick="closeCart()" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 drawer-backdrop"></div>
+  <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-[480px] bg-surface-container-lowest z-50 shadow-2xl flex flex-col translate-x-full transition-transform duration-300 ease-in-out border-l border-surface-variant/40">
+    
+    <!-- Drawer Header -->
+    <div class="p-5 border-b border-surface-variant/40 flex items-center justify-between bg-surface-container-low">
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary text-[24px]">shopping_bag</span>
+        <h3 class="font-serif text-base font-bold text-on-surface">سلة المشتريات</h3>
+      </div>
+      <button onclick="closeCart()" class="w-8 h-8 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-outline hover:text-on-surface transition-colors">
+        <span class="material-symbols-outlined text-[18px]">close</span>
+      </button>
+    </div>
+
+    <!-- Free Shipping Progress Tracker -->
+    <div class="px-6 py-3.5 bg-surface-container/40 border-b border-surface-variant/30 space-y-2">
+      <p id="shipping-progress-text" class="text-xs text-on-surface-variant"></p>
+      <div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+        <div id="shipping-progress-bar" class="h-full bg-primary transition-all duration-300" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <!-- Dynamic Cart Items Container (Starts EMPTY) -->
+    <div id="drawer-items" class="flex-1 overflow-y-auto p-5 space-y-3">
+      <!-- Injected dynamically by cart.js -->
+    </div>
+
+    <!-- Drawer Footer -->
+    <div class="p-5 border-t border-surface-variant/40 bg-surface-container-low space-y-4">
+      <div class="space-y-2 text-xs sm:text-sm">
+        <div class="flex justify-between text-outline">
+          <span>المجموع الفرعي:</span>
+          <span id="cart-drawer-subtotal" class="font-bold text-on-surface">$0.00</span>
+        </div>
+        <div class="flex justify-between text-outline">
+          <span>الشحن والتوصيل:</span>
+          <span id="cart-drawer-shipping" class="font-bold text-emerald-400">مجاني</span>
+        </div>
+        <div class="flex justify-between text-base font-bold text-on-surface pt-2 border-t border-surface-variant/40">
+          <span>الإجمالي النهائي:</span>
+          <span id="cart-drawer-total" class="text-primary font-serif text-lg font-bold">$0.00</span>
+        </div>
+      </div>
+
+      <button onclick="openCheckoutModal()" class="w-full py-3.5 px-6 rounded-full bg-primary hover:bg-secondary text-surface-container-lowest font-bold text-xs tracking-wide transition-all flex items-center justify-center gap-2 shadow-xl">
+        <span>متابعة إتمام الطلب</span>
+        <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+      </button>
+
+      <p class="text-center text-[11px] text-outline flex items-center justify-center gap-1.5">
+        <span class="material-symbols-outlined text-[14px] text-emerald-400">lock</span>
+        حجز مؤكد مع إرسال تفاصيل التوصيل مباشرة إلى لوحة الطلبات
+      </p>
+    </div>
+  </aside>
+
+
+  <!-- 2. Global Search Overlay Modal -->
+  <div id="search-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-start justify-center pt-20 px-4 modal-overlay">
+    <div class="w-full max-w-2xl bg-surface-container-low rounded-2xl border border-surface-variant/60 shadow-2xl overflow-hidden modal-content">
+      
+      <!-- Search Input Bar -->
+      <div class="p-4 sm:p-5 border-b border-surface-variant/50 flex items-center gap-3 bg-surface-container">
+        <span class="material-symbols-outlined text-primary text-[22px]">search</span>
+        <input id="search-modal-input" oninput="handleSearchInput(event)" type="text" placeholder="ابحث باسم المحصول، الدولة (إثيوبيا، بنما...) أو الإيحاء (ياسمين، خوخ)..." class="w-full bg-transparent border-0 text-on-surface placeholder:text-outline text-sm focus:outline-none"/>
+        <button onclick="closeSearchModal()" class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-outline hover:text-on-surface transition-colors">
+          <span class="material-symbols-outlined text-[16px]">close</span>
+        </button>
+      </div>
+
+      <!-- Quick Suggestion Tags -->
+      <div class="px-5 py-3 bg-surface-container-lowest/50 border-b border-surface-variant/30 flex items-center gap-2 text-xs overflow-x-auto">
+        <span class="text-outline text-[11px] font-bold">شائع:</span>
+        <button onclick="document.getElementById('search-modal-input').value='قيشا'; handleSearchInput({target:{value:'قيشا'}})" class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant hover:text-primary transition-colors">قيشا</button>
+        <button onclick="document.getElementById('search-modal-input').value='إثيوبيا'; handleSearchInput({target:{value:'إثيوبيا'}})" class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant hover:text-primary transition-colors">إثيوبيا</button>
+        <button onclick="document.getElementById('search-modal-input').value='كولومبيا'; handleSearchInput({target:{value:'كولومبيا'}})" class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant hover:text-primary transition-colors">كولومبيا</button>
+        <button onclick="document.getElementById('search-modal-input').value='ياسمين'; handleSearchInput({target:{value:'ياسمين'}})" class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant hover:text-primary transition-colors">ياسمين</button>
+      </div>
+
+      <!-- Search Results List -->
+      <div id="search-results-list" class="p-5 max-h-96 overflow-y-auto space-y-2">
+        <!-- Rendered by main.js -->
+      </div>
+      
+      <div class="px-5 py-3 bg-surface-container text-left text-[11px] text-outline border-t border-surface-variant/40">
+        اضغط <kbd class="px-1.5 py-0.5 rounded bg-surface-container-high font-mono text-on-surface">Esc</kbd> للإغلاق
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 3. Checkout Modal Dialog (Real Customer Inputs - NO Dummy Data) -->
+  <div id="checkout-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4 modal-overlay">
+    <div class="w-full max-w-xl bg-surface-container-low rounded-3xl border border-surface-variant/70 shadow-2xl overflow-hidden modal-content">
+      
+      <div class="p-6 border-b border-surface-variant/50 flex items-center justify-between bg-surface-container">
+        <div class="flex items-center gap-2.5">
+          <span class="material-symbols-outlined text-primary text-[22px]">lock</span>
+          <h3 class="font-serif text-base font-bold text-on-surface">إتمام حجز وشحن الطلب</h3>
+        </div>
+        <button onclick="closeCheckoutModal()" class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-outline hover:text-on-surface transition-colors">
+          <span class="material-symbols-outlined text-[16px]">close</span>
+        </button>
+      </div>
+
+      <form onsubmit="processCheckout(event)" class="p-6 space-y-5 max-h-[75vh] overflow-y-auto">
+        
+        <!-- Order Summary Box -->
+        <div class="p-4 rounded-2xl bg-surface-container border border-surface-variant/40">
+          <h4 class="text-xs font-bold text-secondary mb-2">ملخص المحاصيل المطلوبة</h4>
+          <div id="checkout-order-summary"></div>
+        </div>
+
+        <!-- Shipping & Customer Information (Empty with helpful placeholders) -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold text-secondary">بيانات العميل وعنوان التوصيل</h4>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs text-outline mb-1 font-medium">الاسم الكامل *</label>
+              <input type="text" name="customerName" id="checkout-name" required placeholder="مثال: محمد عبدالله" class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container border border-surface-variant text-on-surface text-xs sm:text-sm focus:border-primary focus:outline-none"/>
+            </div>
+            <div>
+              <label class="block text-xs text-outline mb-1 font-medium">رقم الجوال للتوصيل *</label>
+              <input type="tel" name="customerPhone" id="checkout-phone" required placeholder="مثال: 0501234567" class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container border border-surface-variant text-on-surface text-xs sm:text-sm focus:border-primary focus:outline-none" dir="ltr"/>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs text-outline mb-1 font-medium">المدينة *</label>
+              <input type="text" name="customerCity" id="checkout-city" required placeholder="مثال: الرياض / جدة / القاهرة" class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container border border-surface-variant text-on-surface text-xs sm:text-sm focus:border-primary focus:outline-none"/>
+            </div>
+            <div>
+              <label class="block text-xs text-outline mb-1 font-medium">البريد الإلكتروني (اختياري)</label>
+              <input type="email" name="customerEmail" id="checkout-email" placeholder="example@domain.com" class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container border border-surface-variant text-on-surface text-xs sm:text-sm focus:border-primary focus:outline-none" dir="ltr"/>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs text-outline mb-1 font-medium">العنوان بالتفصيل (الحي، الشارع) *</label>
+            <input type="text" name="customerAddress" id="checkout-address" required placeholder="مثال: حي النرجس، شارع الورد، مبنى 12" class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container border border-surface-variant text-on-surface text-xs sm:text-sm focus:border-primary focus:outline-none"/>
+          </div>
+
+          <div>
+            <label class="block text-xs text-outline mb-1 font-medium">ملاحظات إضافية للتوصيل (اختياري)</label>
+            <input type="text" name="customerNotes" id="checkout-notes" placeholder="مثال: أرجو الاتصال قبل الوصول بنصف ساعة..." class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container border border-surface-variant text-on-surface text-xs sm:text-sm focus:border-primary focus:outline-none"/>
+          </div>
+        </div>
+
+        <!-- Payment Method -->
+        <div class="space-y-3 pt-2">
+          <h4 class="text-xs font-bold text-secondary">طريقة الدفع المفضلة</h4>
+          <div class="grid grid-cols-2 gap-3">
+            <label class="flex items-center gap-2 p-3 rounded-xl bg-surface-container border border-primary/40 cursor-pointer">
+              <input type="radio" name="payment" value="الدفع عند الاستلام" checked class="text-primary focus:ring-0"/>
+              <span class="text-xs font-bold text-on-surface">الدفع عند الاستلام</span>
+            </label>
+            <label class="flex items-center gap-2 p-3 rounded-xl bg-surface-container border border-surface-variant cursor-pointer">
+              <input type="radio" name="payment" value="بطاقة بنكية / مدى" class="text-primary focus:ring-0"/>
+              <span class="text-xs font-medium text-on-surface">بطاقة مدى / ائتمانية</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button id="checkout-submit-btn" type="submit" class="w-full py-3.5 px-6 rounded-full bg-primary hover:bg-secondary text-surface-container-lowest font-bold text-xs tracking-wide transition-all shadow-xl">
+          تأكيد وإرسال الطلب
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- 4. Order Confirmation Modal -->
+  <div id="order-confirmation-modal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex items-center justify-center p-4 modal-overlay">
+    <div class="w-full max-w-md bg-surface-container-low rounded-3xl border border-primary/40 p-8 text-center space-y-5 modal-content shadow-2xl">
+      <div class="w-16 h-16 rounded-full bg-primary/15 border border-primary/40 flex items-center justify-center mx-auto text-primary">
+        <span class="material-symbols-outlined text-[36px]">verified</span>
+      </div>
+      <div>
+        <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-bold">تم تسجيل طلبك بنجاح</span>
+        <h3 class="font-serif text-xl font-bold text-on-surface mt-3">شكراً لطلبك من متجرنا!</h3>
+        <p class="text-outline text-xs mt-1">رقم الطلب الخاص بك: <strong id="confirmed-order-number" class="text-primary font-mono text-base font-bold">ORD-123456</strong></p>
+      </div>
+      <p class="text-xs text-on-surface-variant leading-relaxed">
+        تم استلام تفاصيل طلبك وإرسالها فوراً إلى المحمصة وفريق التجهيز، وستظهر في لوحة التحكم لمتابعة الشحن والتوصيل.
+      </p>
+      <div class="pt-2 flex flex-col gap-2">
+        <a href="dashboard.html" class="w-full py-3 rounded-full bg-primary text-surface-container-lowest font-bold text-xs transition-colors flex items-center justify-center gap-1.5 shadow-md">
+          <span class="material-symbols-outlined text-[16px]">dashboard</span>
+          <span>عرض الطلب في لوحة التحكم</span>
+        </a>
+        <button onclick="closeConfirmationModal()" class="w-full py-3 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-semibold text-xs transition-colors">
+          العودة للتسوق
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 5. Mobile Menu Drawer -->
+  <div id="mobile-menu-backdrop" onclick="closeMobileMenu()" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 drawer-backdrop"></div>
+  <aside id="mobile-menu-drawer" class="fixed top-0 right-0 h-full w-72 bg-surface-container-lowest z-50 shadow-2xl flex flex-col translate-x-full transition-transform duration-300 border-l border-surface-variant/40">
+    <div class="p-6 border-b border-surface-variant/40 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-[22px]">local_cafe</span>
+        <span class="font-serif font-bold text-base text-on-surface">سوق القهوة المختصة</span>
+      </div>
+      <button onclick="closeMobileMenu()" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-outline">
+        <span class="material-symbols-outlined text-[18px]">close</span>
+      </button>
+    </div>
+    <nav class="p-6 space-y-4 text-xs font-semibold flex-1">
+      <a href="index.html" class="flex items-center gap-3 py-2 text-primary">الرئيسية</a>
+      <a href="shop.html" class="flex items-center gap-3 py-2 text-on-surface hover:text-primary transition-colors">المحاصيل الفاخرة</a>
+      <a href="product.html" class="flex items-center gap-3 py-2 text-on-surface hover:text-primary transition-colors">سلالة القيشا</a>
+      <a href="dashboard.html" class="flex items-center gap-3 py-2 text-emerald-400 font-bold hover:underline">
+        <span class="material-symbols-outlined text-[18px]">dashboard</span>
+        <span>لوحة استقبال الطلبات</span>
+      </a>
+      <a href="index.html#reserve-showcase" class="flex items-center gap-3 py-2 text-on-surface hover:text-primary transition-colors">الأكثر طلباً</a>
+      <a href="index.html#origin-explorer" class="flex items-center gap-3 py-2 text-on-surface hover:text-primary transition-colors">خريطة النكهات</a>
+    </nav>
+  </aside>
+
+
+  <!-- Scripts -->
+  <script type="module" src="js/firebase.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Interactive script for index sections -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Filter tabs in best sellers
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const productCards = document.querySelectorAll('.product-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => {
+            b.classList.remove('bg-primary', 'text-surface-container-lowest', 'font-bold');
+            b.classList.add('bg-surface-container', 'text-on-surface-variant');
+          });
+          btn.classList.add('bg-primary', 'text-surface-container-lowest', 'font-bold');
+          btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+
+          const filter = btn.getAttribute('data-filter');
+          productCards.forEach(card => {
+            if (filter === 'all' || card.getAttribute('data-origin') === filter) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Terroir switcher
+      const terroirData = {
+        ethiopia: {
+          title: "مرتفعات يرغاتشيف وسيدامو",
+          desc: "موطن سلالات القهوة البرية الإرثية. مناخ ضبابي وتربة بركانية تمنح عبير ياسمين ساحر وحمضية ليمونية منعشة كالشاي الفاخر.",
+          floral: "96%",
+          acidity: "92%",
+          body: "68%",
+          radarPoints: "100,25 168,78 135,148 65,152 35,76"
+        },
+        colombia: {
+          title: "هويلا بينك بوربون والأنديز",
+          desc: "منحدرات الأنديز البركانية تنتج سكريات مكثفة وحلاوة كرزية مستدامة مع قوام حريري ونغمات كاكاو داكن متزنة.",
+          floral: "74%",
+          acidity: "82%",
+          body: "94%",
+          radarPoints: "100,55 174,80 146,160 56,160 30,85"
+        },
+        yemen: {
+          title: "مدرجات حراز الصخرية الأثرية",
+          desc: "مدرجات حجرية شاهقة على ارتفاع 2,400 متر. تجفيف طبيعي تحت شمس الجبال يركز التوابل الشرقية وزيوت الهيل ونكهة الزبيب والتين.",
+          floral: "62%",
+          acidity: "76%",
+          body: "98%",
+          radarPoints: "100,75 160,85 142,164 54,162 40,95"
+        }
+      };
+
+      const terroirTabs = document.querySelectorAll('.terroir-tab');
+      const titleElem = document.getElementById('terroir-title');
+      const descElem = document.getElementById('terroir-desc');
+      const statFloral = document.getElementById('stat-floral');
+      const statAcidity = document.getElementById('stat-acidity');
+      const statBody = document.getElementById('stat-body');
+      const barFloral = document.getElementById('bar-floral');
+      const barAcidity = document.getElementById('bar-acidity');
+      const barBody = document.getElementById('bar-body');
+      const radarPolygon = document.getElementById('radar-polygon');
+
+      terroirTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          terroirTabs.forEach(t => {
+            t.classList.remove('bg-primary', 'text-surface-container-lowest', 'font-bold');
+            t.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+          });
+          tab.classList.add('bg-primary', 'text-surface-container-lowest', 'font-bold');
+          tab.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+
+          const key = tab.getAttribute('data-terroir');
+          const data = terroirData[key];
+          if (data) {
+            if (titleElem) titleElem.textContent = data.title;
+            if (descElem) descElem.textContent = data.desc;
+            if (statFloral) statFloral.textContent = data.floral;
+            if (statAcidity) statAcidity.textContent = data.acidity;
+            if (statBody) statBody.textContent = data.body;
+            if (barFloral) barFloral.style.width = data.floral;
+            if (barAcidity) barAcidity.style.width = data.acidity;
+            if (barBody) barBody.style.width = data.body;
+            if (radarPolygon) radarPolygon.setAttribute('points', data.radarPoints);
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
